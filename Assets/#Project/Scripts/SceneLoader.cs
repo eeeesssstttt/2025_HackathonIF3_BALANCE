@@ -7,14 +7,14 @@ public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance { get; private set; }
 
-    // Temporaire, pour tester le changement de scènes, je mets un input:
+    // Variables temporaires pour tester le changement de scènes :
     [SerializeField] private InputActionAsset actions;
     private int nextSceneIndex = 0;
     private int totalScenes = 2;
 
+    // Dans Awake, on a le code pour faire un Singleton. 
     private void Awake()
     {
-        // If there is an instance, and it's not me, delete myself.
         DontDestroyOnLoad(gameObject);
 
         if (Instance != null && Instance != this)
@@ -41,15 +41,24 @@ public class SceneLoader : MonoBehaviour
     //     Debug.Log("OnDisabled activated");
     // }
 
+    // OnClick est temporaire. Voir fonction ChangeScene() pour la version définitive.
+
     public void OnClick(InputAction.CallbackContext context)
     {
         nextSceneIndex++;
         if (nextSceneIndex > totalScenes)
         {
+            // Ici aussi temporaire, relance la première scène (Attention ! Il faudra faire en sorte de ne pas rappeler le SceneLoader; à voir avec le GameInitializer).
             nextSceneIndex = 0;
         }
-
         SceneManager.LoadScene(nextSceneIndex);
-
     }
+
+    // // Au lieu de OnClick, on aurait une fonction :
+    // public void ChangeScene(string scene)
+    // {
+    //     SceneManager.LoadScene(scene);
+    // }
+
+    // // Elle sera appelée dans le GameManager, qui lui aura des bool de gameState.
 }
