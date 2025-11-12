@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -5,9 +6,11 @@ using UnityEngine.UI;
 
 public class SwipeCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    public event Action cardMoved;
     private Vector3 _initialPosition;
     private float _distanceMoved;
     private bool _swipeLeft;
+    
     
     public void OnDrag(PointerEventData eventData)
     {
@@ -41,12 +44,13 @@ public class SwipeCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
             if (transform.localPosition.x > _initialPosition.x)
             {
                 _swipeLeft = false;
-                
+
             }
             else
             {
                 _swipeLeft = true;
             }
+            cardMoved?.Invoke();
             StartCoroutine(MovedCard());
         }
     }
