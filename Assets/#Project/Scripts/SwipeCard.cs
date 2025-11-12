@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ButtonManager : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class SwipeCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     private Vector3 _initialPosition;
     private float _distanceMoved;
@@ -11,7 +11,16 @@ public class ButtonManager : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     
     public void OnDrag(PointerEventData eventData)
     {
-        transform.localPosition = new Vector2(transform.localPosition.x+eventData.delta.x,transform.localPosition.y);
+        transform.localPosition = new Vector2(transform.localPosition.x + eventData.delta.x, transform.localPosition.y);
+
+        if (transform.localPosition.x - _initialPosition.x > 0)
+        {
+            transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(0, -30, (_initialPosition.x + transform.localPosition.x) / (Screen.width / 2)));
+        }
+        else
+        {
+             transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(0, -30, (_initialPosition.x - transform.localPosition.x) / (Screen.width / 2)));
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -25,6 +34,7 @@ public class ButtonManager : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         if(_distanceMoved<0.4*Screen.width)
         {
             transform.localPosition = _initialPosition;
+            transform.localEulerAngles = Vector3.zero;
         }
         else
         {
