@@ -1,0 +1,104 @@
+{
+  "decks": [
+    {
+      "id": "deck-001",
+      "title": "Regular Card",
+      "cards": [
+        {
+          "id": "0",
+          "category": "environnement",
+          "title": "Arbre ou Parking",
+          "image": "./images/cut-trees.jpg",
+          "text": "Le conseil municipal veut couper les arbres de ton quartier pour agrandir le parking.",
+          "accept": {
+            "eco": 10,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "1",
+          "category": "environnement",
+          "title": "Tri sélectif fatiguant",
+          "image": "./images/tri-selectif.jpg",
+          "accept": {
+            "eco": 10,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "2",
+          "category": "environnement",
+          "title": "Vacances ou Empreinte carbone ?",
+          "image": "./images/holidays.jpg",
+          "text": "Tes amis partent en avion pour une semaine à Bali.",
+          "accept": {
+            "eco": 10,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "3",
+          "category": "environnement",
+          "title": "Manifestation pour le climat",
+          "image": "./images/manifestation.jpg",
+          "text": "Une grande marche pour le climat est organisée ce week-end.",
+          "accept": {
+            "eco": 10,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "4",
+          "category": "environnement",
+          "title": "Centrale éolienne dans la région.",
+          "image": "./images/manifestation.jpg",
+          "text": "Une entreprise propose d'installer des éoliennes sur les collines voisines.",
+          "accept": {
+            "eco": 10,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": 0
+          }
+        }
+      ]
+    }
+  ]
+}
