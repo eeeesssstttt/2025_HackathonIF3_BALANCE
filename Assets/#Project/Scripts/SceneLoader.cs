@@ -7,10 +7,13 @@ public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance { get; private set; }
 
-    // Variables temporaires pour tester le changement de scènes :
+
+    // ++++TEMPORAIRE++++ Variables temporaires pour tester le changement de scènes :
     [SerializeField] private InputActionAsset actions;
     private int nextSceneIndex = 0;
     private int totalScenes = 2;
+    // ++++FIN++++
+
 
     // Dans Awake, on a le code pour faire un Singleton. 
     private void Awake()
@@ -27,22 +30,20 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    // OnEnable est aussi temporaire et permet de voir qu'on change de scène:
+
+    // ++++TEMPORAIRE++++ OnEnable est aussi temporaire et permet de voir qu'on change de scène:
     void OnEnable()
     {
         actions.FindActionMap("Player").Enable();
         actions.FindActionMap("Player").FindAction("ChangeScene").performed += OnClick;
     }
-
     // void OnDisable()
     // {
     //     actions.FindActionMap("Player").Disable();
     //     actions.FindActionMap("Player").FindAction("ChangeScene").performed -= OnClick;
     //     Debug.Log("OnDisabled activated");
     // }
-
-    // OnClick est temporaire. Voir fonction ChangeScene() pour la version définitive.
-
+    // // OnClick est temporaire. Voir fonction ChangeScene() pour la version définitive.
     public void OnClick(InputAction.CallbackContext context)
     {
         nextSceneIndex++;
@@ -53,12 +54,12 @@ public class SceneLoader : MonoBehaviour
         }
         SceneManager.LoadScene(nextSceneIndex);
     }
+    // ++++FIN++++
 
-    // // Au lieu de OnClick, on aurait une fonction :
-    // public void ChangeScene(string scene)
-    // {
-    //     SceneManager.LoadScene(scene);
-    // }
 
-    // // Elle sera appelée dans le GameManager, qui lui aura des bool de gameState.
+    // Au lieu de OnClick, on aurait la fonction suivante, appelée par le gameManager :
+    public void ChangeScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
 }
