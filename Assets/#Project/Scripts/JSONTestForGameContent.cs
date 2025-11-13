@@ -50,11 +50,6 @@ public class testJSON : MonoBehaviour
     string CleanPath(string raw)
     {
         raw = raw.Replace("./", "");
-        raw = raw.Replace(".jpg", "");
-        raw = raw.Replace(".png", "");
-        raw = raw.Replace(".jpeg", "");
-        raw = raw.Replace(".webp", "");
-        raw = raw.Replace(".avif", "");
         return raw;
     }
 
@@ -106,9 +101,10 @@ public class testJSON : MonoBehaviour
         decks = jsonData.decks[0];
 
         // Access card at index 1 (id 1) (cards in JSON)
-        cards = decks.cards[1];
+        cards = decks.cards[3];
 
         Debug.Log("Card title :" + cards.text);
+        Debug.Log("Score :" + cards.accept.eco);
 
         sprite = LoadCardSprite(cards.image);
 
@@ -119,7 +115,7 @@ public class testJSON : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        cardBehavior.DisplayQuestion(cards.text, sprite, cards.title, cards.id, cards.id);
+        // cards.text, sprite, cards.title, cards.id, cards.id
+        cardBehavior.DisplayQuestion(cards.text, sprite, cards.title);
     }
 }
