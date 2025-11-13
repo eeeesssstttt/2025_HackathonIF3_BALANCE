@@ -28,7 +28,6 @@
           "category": "environnement",
           "title": "Tri sélectif fatiguant",
           "image": "./images/tri-selectif.jpg",
-          "text": "La nouvelle politique de tri impose des règles strictes à la maison.",
           "accept": {
             "eco": 10,
             "pouvoir": 0,

@@ -12,16 +12,13 @@ public class CardBehavior : MonoBehaviour
 
     // The card knows its contents : a question, the corresponding image and both possible answers.
     [SerializeField] private Image background;
-    [SerializeField] private Image illustration;
+    [SerializeField] private Image image;
+
     [SerializeField] private TextMeshProUGUI question;
-    [SerializeField] private int questionFontSize;
-    [SerializeField] private TextMeshProUGUI response1;
-    [SerializeField] private TextMeshProUGUI response2;
-    [SerializeField] private int responseFontSize;
-    [SerializeField] private Sprite testSprite;
-    [SerializeField] private string testQuestion;
-    [SerializeField] private string testResponse1;
-    [SerializeField] private string testResponse2;
+
+    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI accept;
+    [SerializeField] private TextMeshProUGUI reject;
 
     // private void Start()
     // {
@@ -30,26 +27,24 @@ public class CardBehavior : MonoBehaviour
 
     public void Initialize()
     {
-        background.gameObject.SetActive(false);
         canvas.gameObject.SetActive(false);
-
-        illustration.gameObject.SetActive(true);
-
+        background.gameObject.SetActive(true);
+        image.gameObject.SetActive(true);
         question.gameObject.SetActive(true);
-        question.fontSize = questionFontSize;
-        response1.gameObject.SetActive(true);
-        response2.gameObject.SetActive(true);
-        response1.fontSize = responseFontSize;
-        response2.fontSize = responseFontSize;
+        text.gameObject.SetActive(true);
+        accept.gameObject.SetActive(true);
+        reject.gameObject.SetActive(true);
     }
 
-    public void DisplayQuestion(Sprite illustrationSprite, string questionText, string response1Text, string response2Text)
+    // public void DisplayQuestion(Sprite illustrationSprite, string questionText, string response1Text, string response2Text)
+    public void DisplayQuestion(string questionText, string textText, string response1Text, string response2Text)
     {
-        illustration.sprite = illustrationSprite;
+        // illustration.sprite = illustrationSprite;
 
         question.text = questionText;
-        response1.text = response1Text;
-        response2.text = response2Text;
+        text.text = textText;
+        accept.text = response1Text;
+        reject.text = response2Text;
 
         background.gameObject.SetActive(true);
         canvas.gameObject.SetActive(true);
