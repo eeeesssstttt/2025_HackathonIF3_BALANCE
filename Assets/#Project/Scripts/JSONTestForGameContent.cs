@@ -106,7 +106,7 @@ public class testJSON : MonoBehaviour
         decks = jsonData.decks[0];
 
         // Access card at index 1 (id 1) (cards in JSON)
-        cards = decks.cards[0];
+        cards = decks.cards[1];
 
         Debug.Log("Card title :" + cards.text);
 
@@ -120,6 +120,6 @@ public class testJSON : MonoBehaviour
     void Update()
     {
         
-        cardBehavior.DisplayQuestion(cards.title, sprite, cards.text, cards.id, cards.id);
+        cardBehavior.DisplayQuestion(cards.text, sprite, cards.title, cards.id, cards.id);
     }
 }
