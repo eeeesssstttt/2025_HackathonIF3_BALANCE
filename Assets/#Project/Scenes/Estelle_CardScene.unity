@@ -354,6 +354,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card json works
       objectReference: {fileID: 0}
+    - target: {fileID: 8711759172459048412, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

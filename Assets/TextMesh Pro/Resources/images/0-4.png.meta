@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3c6a5f292a549fe4d9f4e6bc0c2029a4
+guid: 7fb1a987d8d6ab642a4f8643389e5df5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3834603313455443424
-    second: 2208.i039.030.F.m004.c9.fake news disinformation propaganda isometric_0
+      213: 4696319753997687972
+    second: 0-4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2208.i039.030.F.m004.c9.fake news disinformation propaganda isometric_0
+      name: 0-4_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 5000
-        height: 6001
+        x: 244
+        y: 244
+        width: 1512
+        height: 1512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ed2c01a56f373530800000000000000
-      internalID: 3834603313455443424
+      spriteID: 4ac9ea02fedac2140800000000000000
+      internalID: 4696319753997687972
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      2208.i039.030.F.m004.c9.fake news disinformation propaganda isometric_0: 3834603313455443424
+      0-4_0: 4696319753997687972
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

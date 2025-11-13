@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class testJSON : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class testJSON : MonoBehaviour
         public Cards[] cards;
     }
 
+    [System.Serializable]
     public class DeckCollection
     {
         public Deck[] decks;
@@ -43,13 +45,42 @@ public class testJSON : MonoBehaviour
 
     [SerializeField] CardBehavior cardBehavior;
 
+   
+
+    string CleanPath(string raw)
+    {
+        raw = raw.Replace("./", "");
+        raw = raw.Replace(".jpg", "");
+        raw = raw.Replace(".png", "");
+        raw = raw.Replace(".jpeg", "");
+        raw = raw.Replace(".webp", "");
+        raw = raw.Replace(".avif", "");
+        return raw;
+    }
+
+    Sprite LoadCardSprite(string rawPath)
+    {
+        string path = CleanPath(rawPath);
+        Sprite sprite = Resources.Load<Sprite>(path);
+
+        if (sprite == null)
+        {
+            Debug.LogError("Image not found at Resources/" + path);
+        }
+
+        return sprite;
+    }
+
     Deck decks;
     Cards cards;
+    Sprite sprite;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         DeckCollection jsonData = JsonUtility.FromJson<DeckCollection>(textJSON.text);
+
+   
 
         // Looping through the outer array (decks)
         foreach (Deck deck in jsonData.decks)
@@ -78,11 +109,17 @@ public class testJSON : MonoBehaviour
         cards = decks.cards[0];
 
         Debug.Log("Card title :" + cards.text);
+
+        sprite = LoadCardSprite(cards.image);
+
+      
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        cardBehavior.DisplayQuestion(cards.title, cards.text, cards.id, cards.id);
+        
+        cardBehavior.DisplayQuestion(cards.title, sprite, cards.text, cards.id, cards.id);
     }
 }

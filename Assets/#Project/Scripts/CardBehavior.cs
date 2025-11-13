@@ -37,7 +37,7 @@ public class CardBehavior : MonoBehaviour
     }
 
     // public void DisplayQuestion(Sprite illustrationSprite, string questionText, string response1Text, string response2Text)
-    public void DisplayQuestion(string questionText, string textText, string response1Text, string response2Text)
+    public void DisplayQuestion(string questionText, Sprite sprite, string textText, string response1Text, string response2Text)
     {
         // illustration.sprite = illustrationSprite;
 
@@ -45,7 +45,7 @@ public class CardBehavior : MonoBehaviour
         text.text = textText;
         accept.text = response1Text;
         reject.text = response2Text;
-
+        image.sprite = sprite;
         background.gameObject.SetActive(true);
         canvas.gameObject.SetActive(true);
     }
@@ -55,4 +55,6 @@ public class CardBehavior : MonoBehaviour
         background.gameObject.SetActive(false);
         canvas.gameObject.SetActive(false);
     }
+
+    
 }

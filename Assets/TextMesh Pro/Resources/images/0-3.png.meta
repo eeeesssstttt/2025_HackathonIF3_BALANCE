@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 04063cf3934a6eb48ae127ee486c89d2
+guid: 37b5924cda39519469bde342f8b6b069
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7749621348280982361
-    second: egality_money_0
+      213: -5901917321325661691
+    second: 0-3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: egality_money_0
+      name: 0-3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 7500
-        height: 5000
+        width: 3000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95b52189e8f2c8b60800000000000000
-      internalID: 7749621348280982361
+      spriteID: 502b8a8477d281ea0800000000000000
+      internalID: -5901917321325661691
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      egality_money_0: 7749621348280982361
+      0-3_0: -5901917321325661691
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

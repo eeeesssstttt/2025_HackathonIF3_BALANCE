@@ -8,7 +8,7 @@
           "id": "0",
           "category": "environnement",
           "title": "Arbre ou Parking",
-          "image": "./images/cut-trees.jpg",
+          "image": "./images/0-1",
           "text": "Le conseil municipal veut couper les arbres de ton quartier pour agrandir le parking.",
           "accept": {
             "eco": 10,
@@ -27,7 +27,8 @@
           "id": "1",
           "category": "environnement",
           "title": "Tri sélectif fatiguant",
-          "image": "./images/tri-selectif.jpg",
+          "image": "./images/0-2",
+          "text": "La nouvelle politique de tri impose des règles strictes à la maison.",
           "accept": {
             "eco": 10,
             "pouvoir": 0,
@@ -45,7 +46,7 @@
           "id": "2",
           "category": "environnement",
           "title": "Vacances ou Empreinte carbone ?",
-          "image": "./images/holidays.avif",
+          "image": "./images/0-3",
           "text": "Tes amis partent en avion pour une semaine à Bali.",
           "accept": {
             "eco": 10,
@@ -64,7 +65,7 @@
           "id": "3",
           "category": "environnement",
           "title": "Manifestation pour le climat",
-          "image": "./images/manifestation.jpg",
+          "image": "./images/0-4",
           "text": "Une grande marche pour le climat est organisée ce week-end.",
           "accept": {
             "eco": 10,
@@ -83,7 +84,7 @@
           "id": "4",
           "category": "environnement",
           "title": "Centrale éolienne dans la région.",
-          "image": "./images/manifestation.jpg",
+          "image": "./images/0-5",
           "text": "Une entreprise propose d'installer des éoliennes sur les collines voisines.",
           "accept": {
             "eco": 10,
@@ -102,7 +103,7 @@
           "id": "5",
           "category": "santé",
           "title": "Hôpital débordé.",
-          "image": "./images/hopital.jpg",
+          "image": "./images/1-1",
           "text": "L’hôpital local manque de personnel et cherche des volontaires pour aider à la logistique.",
           "accept": {
             "eco": 0,
@@ -121,7 +122,7 @@
           "id": "6",
           "category": "santé",
           "title": "Sport ou canapé ?",
-          "image": "./images/sport-canape.jpg",
+          "image": "./images/1-2",
           "text": "Tes amis te proposent de courir le matin avant le travail.",
           "accept": {
             "eco": 0,
@@ -140,7 +141,7 @@
           "id": "7",
           "category": "santé",
           "title": "Fast-food ou repas maison ?",
-          "image": "./images/fast-food.avif",
+          "image": "./images/1-3",
           "text": "Après une longue journée de travail, tu passes devant ton fast-food préféré.",
           "accept": {
             "eco": 0,
@@ -159,7 +160,7 @@
           "id": "8",
           "category": "santé",
           "title": "Piste cyclable",
-          "image": "./images/pist-cyclable.webp",
+          "image": "./images/1-4",
           "text": "La mairie remplace des places de stationnement par une piste cyclable.",
           "accept": {
             "eco": 0,
@@ -178,7 +179,7 @@
           "id": "9",
           "category": "santé",
           "title": "Campagne de vaccination gratuite",
-          "image": "./images/vaccination.webp",
+          "image": "./images/1-5",
           "text": "Le centre de santé propose une vaccination gratuite pour tous.",
           "accept": {
             "eco": 0,
