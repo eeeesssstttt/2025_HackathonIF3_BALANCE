@@ -20,6 +20,7 @@ public class testJSON : MonoBehaviour
         public string id;
         public string category;
         public string title;
+        public string text;
         public string image;
         public Choice accept;
         public Choice reject;
@@ -53,16 +54,17 @@ public class testJSON : MonoBehaviour
         // Looping through the outer array (decks)
         foreach (Deck deck in jsonData.decks)
         {
-            Debug.Log("ID: " + deck.id + " Title: " + deck.title);
+            // Debug.Log("ID: " + deck.id + " Title: " + deck.title);
 
             // Looping through the next array (cards)
             // in deck.cards -> deck is from above array deck
             foreach (Cards card in deck.cards)
             {
-                Debug.Log("ID: " + card.id + " Title: " + card.title);
+                // Debug.Log("ID: " + card.id + " Title: " + card.title + " Text: " + card.text);
+                // Debug.Log("   Text: " + card.text);
 
                 // Loops into accept or reject object
-                Debug.Log("Point: " + card.accept.eco);
+                // Debug.Log("Point: " + card.accept.eco);
             }
         }
 
@@ -73,14 +75,14 @@ public class testJSON : MonoBehaviour
         decks = jsonData.decks[0];
 
         // Access card at index 1 (id 1) (cards in JSON)
-        cards = decks.cards[1];
+        cards = decks.cards[0];
 
-        Debug.Log("Card title :" + cards.title);
+        Debug.Log("Card title :" + cards.text);
     }
 
     // Update is called once per frame
     void Update()
     {
-        cardBehavior.DisplayQuestion(cards.title, cards.title, cards.title);
+        cardBehavior.DisplayQuestion(cards.title, cards.text, cards.id, cards.id);
     }
 }

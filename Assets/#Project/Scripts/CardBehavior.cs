@@ -14,7 +14,9 @@ public class CardBehavior : MonoBehaviour
     [SerializeField] private Image background;
     [SerializeField] private Image image;
 
-    [SerializeField] private TextMeshProUGUI texte;
+    [SerializeField] private TextMeshProUGUI question;
+
+    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private TextMeshProUGUI accept;
     [SerializeField] private TextMeshProUGUI reject;
 
@@ -26,21 +28,21 @@ public class CardBehavior : MonoBehaviour
     public void Initialize()
     {
         canvas.gameObject.SetActive(false);
-
         background.gameObject.SetActive(true);
         image.gameObject.SetActive(true);
-
-        texte.gameObject.SetActive(true);
+        question.gameObject.SetActive(true);
+        text.gameObject.SetActive(true);
         accept.gameObject.SetActive(true);
         reject.gameObject.SetActive(true);
     }
 
     // public void DisplayQuestion(Sprite illustrationSprite, string questionText, string response1Text, string response2Text)
-    public void DisplayQuestion(string questionText, string response1Text, string response2Text)
+    public void DisplayQuestion(string questionText, string textText, string response1Text, string response2Text)
     {
         // illustration.sprite = illustrationSprite;
 
-        texte.text = questionText;
+        question.text = questionText;
+        text.text = textText;
         accept.text = response1Text;
         reject.text = response2Text;
 
