@@ -43,9 +43,10 @@ public class CardBehavior : MonoBehaviour
         response2.fontSize = responseFontSize;
     }
 
-    public void DisplayQuestion(Sprite illustrationSprite, string questionText, string response1Text, string response2Text)
+    // public void DisplayQuestion(Sprite illustrationSprite, string questionText, string response1Text, string response2Text)
+    public void DisplayQuestion(string questionText, string response1Text, string response2Text)
     {
-        illustration.sprite = illustrationSprite;
+        // illustration.sprite = illustrationSprite;
 
         question.text = questionText;
         response1.text = response1Text;

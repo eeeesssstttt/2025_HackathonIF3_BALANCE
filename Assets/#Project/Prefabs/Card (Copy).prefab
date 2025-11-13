@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardBehavior
   canvas: {fileID: 6343709436342512785}
-  background: {fileID: 0}
+  background: {fileID: 8169458148059016971}
   illustration: {fileID: 4615501795551640790}
   question: {fileID: 1504301228933025774}
   questionFontSize: 30
