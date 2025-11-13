@@ -1,30 +1,94 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+
+[System.Serializable] // carte individuellement
+public class CardData
+{
+    public string question;
+    public string reponse1;
+    public string reponse2;
+}
+
+[System.Serializable] // l'ensemble des cartes
+public class CardList
+{
+    public List<CardData> cards;
+}
+    
 public class GameManager : MonoBehaviour
 {
-    private int playedCards = 0;
+
+    // "scene manager"
     [SerializeField] SceneLoader sceneLoader;
-    // Juste pour l'exemple. On pourra ajuster le nombre de cartes, idéalement on passerait cette information dans l'inspecteur.
-    [SerializeField] private int MaxCardsToPlay = 10;
 
-    // Ici, il nous faudra un lien avec le bouton START de la scène de démarrage. Il peut simplement appeler cette fonction.
-    public void GameStarted()
+    //elements UI
+    [SerializeField] private Slider progressBar;
+    [SerializeField] private Transform cardParent;
+    [SerializeField] private GameObject cardPrefab;
+
+    // json data
+    [SerializeField] private TextAsset jsonFile;
+
+    private CardList cardList;
+    private int currentCardIndex = 0;
+    private int totalCards = 0; // à definir
+
+    void Start()
     {
-        sceneLoader.ChangeScene("MainScene");
+        LoadData();
+        SetupProgressBar();
+        CreateNextCard();
     }
 
-    public void CardPlayed()
+    private void LoadData() // charge données json
     {
-        playedCards++;
-        if (playedCards >= MaxCardsToPlay)
+        cardList = JsonUtility.FromJson<CardList>(jsonFile.text);
+        totalCards = cardList.cards.Count; // recup nombre total de cartes
+    }
+
+    private void SetupProgressBar() // instantie progress bar
+    {
+        progressBar.minValue = 0;
+        progressBar.maxValue = totalCards; // à definir
+        progressBar.value = 0;
+    }
+
+    public void CreateNextCard()
+    {
+        if (currentCardIndex >= totalCards) // si toutes les cartes sont passé --> fin du jeu
         {
-            GameEnded();
+            EndGame();
+            return;
         }
+
+        GameObject newCard = Instantiate(cardPrefab, cardParent, false); // instantie nouvelles carte à partir du prefabs
+        SwipeCard swipe = newCard.GetComponent<SwipeCard>(); // recup comportement de SwipeCard.cs
+        CardBehavior behavior = newCard.GetComponent<CardBehavior>();
+
+        swipe.cardMoved += OnCardSwiped; // quand la carte esr swipé on appel la fonction
+
+        var cardData = cardList.cards[currentCardIndex];
+
+        behavior.DisplayQuestion(null, cardData.question, cardData.reponse1, cardData.reponse2); // affiche question et reponses sur la carte
     }
 
-    private void GameEnded()
+    private void OnCardSwiped() // fonction appelée quand la carte est swipé
+    {
+        currentCardIndex++; // on fait +1 dans l'index
+        progressBar.value = currentCardIndex; // met à jour la bar de progression
+
+        CreateNextCard(); // crée la carte d'apres
+    }
+    
+    private void EndGame() // toutes les cartes ont été jouées, lance la scene End
     {
         sceneLoader.ChangeScene("End");
     }
 
+    public void GameStarted() // lancement de la main scene
+    {
+        sceneLoader.ChangeScene("MainScene");
+    }
 }
