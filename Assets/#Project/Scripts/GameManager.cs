@@ -109,9 +109,9 @@ public class GameManager : MonoBehaviour
         CreateNextCard(); // crée la carte d'apres
     }
     
-    // private void EndGame() // toutes les cartes ont été jouées, lance la scene End
+    // private void EndGame() 
     // {
-    //     if (totalCards <= 9)
+    //     if (totalScore <= 9)
     //     {
     //         sceneLoader.ChangeScene("End");
     //     }
