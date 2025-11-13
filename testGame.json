@@ -1,0 +1,25 @@
+{
+  "id": "deck-001",
+  "title": "Regular Card",
+  "cards": [
+    {
+      "id": "0",
+      "category": "environnement",
+      "title": "Arbre ou Parking",
+      "image": "./images/cut-trees.jpg",
+      "text": "Le conseil municipal veut couper les arbres de ton quartier pour agrandir le parking.",
+      "accept": {
+        "eco": 10,
+        "pouvoir": 0,
+        "population": 5,
+        "sante": 0
+      },
+      "reject": {
+        "eco": -5,
+        "pouvoir": 0,
+        "population": -5,
+        "sante": 0
+      }
+    }
+  ]
+}
