@@ -40,6 +40,11 @@ public class testJSON : MonoBehaviour
 
     public TextAsset textJSON;
 
+    [SerializeField] CardBehavior cardBehavior;
+
+    Deck decks;
+    Cards cards;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -65,10 +70,10 @@ public class testJSON : MonoBehaviour
         // Accessing specific items -> Title of id 1 in First Deck (Regular Card)
 
         // Access first deck (decks in JSON)
-        Deck decks = jsonData.decks[0];
+        decks = jsonData.decks[0];
 
         // Access card at index 1 (id 1) (cards in JSON)
-        Cards cards = decks.cards[1];
+        cards = decks.cards[1];
 
         Debug.Log("Card title :" + cards.title);
     }
@@ -76,6 +81,6 @@ public class testJSON : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        cardBehavior.DisplayQuestion(cards.title, cards.title, cards.title);
     }
 }
