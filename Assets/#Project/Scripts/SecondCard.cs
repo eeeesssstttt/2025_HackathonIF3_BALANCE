@@ -27,7 +27,7 @@ public class SecondCard : MonoBehaviour
         }
     }
     
-    void CardMovedFront()
+    void CardMovedFront(bool swipeLeft)
     {
         gameObject.AddComponent<SwipeCard>();
         Destroy(this);

@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
+
 public class SwipeCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    public event Action cardMoved;
+    public event Action<bool> cardMoved;
     private Vector3 _initialPosition;
     private float _distanceMoved;
     private bool _swipeLeft;
@@ -50,7 +52,7 @@ public class SwipeCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
             {
                 _swipeLeft = true;
             }
-            cardMoved?.Invoke();
+            cardMoved?.Invoke(_swipeLeft);
             StartCoroutine(MovedCard());
         }
     }

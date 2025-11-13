@@ -9,8 +9,8 @@ public class CardData
     public string question;
     public string reponse1;
     public string reponse2;
-    public int score1; // associé à la reponse 1 
-    public int score2; // associé à la reponse 2
+    public Effect score1; // associé à la reponse 1 
+    public Effect score2; // associé à la reponse 2
 }
 
 [System.Serializable] // l'ensemble des cartes
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Slider progressBar;
     [SerializeField] private Transform cardParent;
     [SerializeField] private GameObject cardPrefab;
+    [SerializeField] private ScoreManager scoreManager;
 
     // json data
     [SerializeField] private TextAsset jsonFile;
@@ -36,8 +37,6 @@ public class GameManager : MonoBehaviour
     private CardList cardList;
     private int currentCardIndex = 0;
     private int totalCards = 0; // à definir
-
-    private int totalScore = 0;
 
     void Start()
     {
@@ -78,39 +77,31 @@ public class GameManager : MonoBehaviour
         behavior.DisplayQuestion(null, cardData.question, cardData.reponse1, cardData.reponse2); // affiche question et reponses sur la carte
     }
 
-    private void OnCardSwiped() // fonction appelée quand la carte est swipé
+    private void OnCardSwiped(bool reponse1 ) // fonction appelée quand la carte est swipé
     {
-        if (currentCardIndex %2 == 0)
+        var cardData = cardList.cards[currentCardIndex];
+
+        if (reponse1)
         {
-            totalScore += cardList.cards[currentCardIndex].score1;
+            scoreManager.SliderEffect(cardData.score1);
         }
         else
         {
-            totalScore += cardList.cards[currentCardIndex].score2;
+            scoreManager.SliderEffect(cardData.score2);
         }
-        currentCardIndex++; // on fait +1 dans l'index
-        progressBar.value = currentCardIndex; // met à jour la bar de progression
 
-        CreateNextCard(); // crée la carte d'apres
+        currentCardIndex++;
+        progressBar.value = currentCardIndex;
+
+        CreateNextCard();
     }
     
     private void EndGame() // toutes les cartes ont été jouées, lance la scene End
     {
-        if (totalCards <= 9)
-        {
-            sceneLoader.ChangeScene("End");
-        }
-        else if (totalScore <=20)
-        {
-            sceneLoader.ChangeScene("End2");
-        }
-        else
-        {
-            sceneLoader.ChangeScene("End3");
-        }
+            sceneLoader.ChangeScene("End_balance");
     }
 
-    public void GameStarted() // lancement de la main scene
+    public void GameStarted()
     {
         sceneLoader.ChangeScene("MainScene");
     }
