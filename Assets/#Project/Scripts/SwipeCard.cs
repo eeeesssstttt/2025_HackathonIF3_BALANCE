@@ -10,8 +10,8 @@ public class SwipeCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     private Vector3 _initialPosition;
     private float _distanceMoved;
     private bool _swipeLeft;
-    
-    
+
+
     public void OnDrag(PointerEventData eventData)
     {
         transform.localPosition = new Vector2(transform.localPosition.x + eventData.delta.x, transform.localPosition.y);
@@ -22,7 +22,7 @@ public class SwipeCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         }
         else
         {
-             transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(0, -30, (_initialPosition.x - transform.localPosition.x) / (Screen.width / 2)));
+            transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(0, -30, (_initialPosition.x - transform.localPosition.x) / (Screen.width / 2)));
         }
     }
 
@@ -34,7 +34,7 @@ public class SwipeCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     public void OnEndDrag(PointerEventData eventData)
     {
         _distanceMoved = Mathf.Abs(transform.localPosition.x - _initialPosition.x);
-        if(_distanceMoved<0.4*Screen.width)
+        if (_distanceMoved < 0.4 * Screen.width)
         {
             transform.localPosition = _initialPosition;
             transform.localEulerAngles = Vector3.zero;
@@ -64,14 +64,14 @@ public class SwipeCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
             if (_swipeLeft)
             {
                 transform.localPosition = new Vector3(Mathf.SmoothStep(transform.localPosition.x,
-                    transform.localPosition.x-Screen.width,time),transform.localPosition.y,0);
+                    transform.localPosition.x - Screen.width, time), transform.localPosition.y, 0);
             }
             else
             {
                 transform.localPosition = new Vector3(Mathf.SmoothStep(transform.localPosition.x,
-                    transform.localPosition.x+Screen.width,time),transform.localPosition.y,0);
+                    transform.localPosition.x + Screen.width, time), transform.localPosition.y, 0);
             }
-            GetComponent<Image>().color = new Color(1,1,1,Mathf.SmoothStep(1,0,4*time));
+            GetComponent<Image>().color = new Color(1, 1, 1, Mathf.SmoothStep(1, 0, 4 * time));
             yield return null;
         }
         Destroy(gameObject);
