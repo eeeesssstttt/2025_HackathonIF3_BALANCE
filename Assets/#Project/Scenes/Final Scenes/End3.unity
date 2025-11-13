@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 147945095}
   - component: {fileID: 147945099}
   m_Layer: 5
-  m_Name: FIN_MIN
+  m_Name: FIN_BALANCE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
