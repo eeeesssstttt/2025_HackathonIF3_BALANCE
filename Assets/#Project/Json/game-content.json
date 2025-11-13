@@ -11,15 +11,15 @@
           "image": "./images/0-1",
           "text": "Le conseil municipal veut couper les arbres de ton quartier pour agrandir le parking.",
           "accept": {
-            "eco": 10,
+            "eco": 1,
             "pouvoir": 0,
-            "population": 5,
+            "population": 1,
             "sante": 0
           },
           "reject": {
-            "eco": -5,
+            "eco": -2,
             "pouvoir": 0,
-            "population": -5,
+            "population": -1,
             "sante": 0
           }
         },
@@ -30,15 +30,15 @@
           "image": "./images/0-2",
           "text": "La nouvelle politique de tri impose des règles strictes à la maison.",
           "accept": {
-            "eco": 10,
+            "eco": 1,
             "pouvoir": 0,
-            "population": 5,
+            "population": 1,
             "sante": 0
           },
           "reject": {
-            "eco": -5,
+            "eco": -2,
             "pouvoir": 0,
-            "population": -5,
+            "population": -1,
             "sante": 0
           }
         },
@@ -49,15 +49,15 @@
           "image": "./images/0-3",
           "text": "Tes amis partent en avion pour une semaine à Bali.",
           "accept": {
-            "eco": 10,
-            "pouvoir": 0,
-            "population": 5,
+            "eco": -2,
+            "pouvoir": -1,
+            "population": 0,
             "sante": 0
           },
           "reject": {
-            "eco": -5,
-            "pouvoir": 0,
-            "population": -5,
+            "eco": 2,
+            "pouvoir": 1,
+            "population": 0,
             "sante": 0
           }
         },
@@ -68,15 +68,15 @@
           "image": "./images/0-4",
           "text": "Une grande marche pour le climat est organisée ce week-end.",
           "accept": {
-            "eco": 10,
+            "eco": 1,
             "pouvoir": 0,
-            "population": 5,
+            "population": 2,
             "sante": 0
           },
           "reject": {
-            "eco": -5,
+            "eco": -1,
             "pouvoir": 0,
-            "population": -5,
+            "population": -2,
             "sante": 0
           }
         },
@@ -87,16 +87,16 @@
           "image": "./images/0-5",
           "text": "Une entreprise propose d'installer des éoliennes sur les collines voisines.",
           "accept": {
-            "eco": 10,
+            "eco": 2,
             "pouvoir": 0,
-            "population": 5,
-            "sante": 0
+            "population": 0,
+            "sante": 1
           },
           "reject": {
-            "eco": -5,
+            "eco": -2,
             "pouvoir": 0,
-            "population": -5,
-            "sante": 0
+            "population": 0,
+            "sante": -1
           }
         },
         {
@@ -104,18 +104,18 @@
           "category": "santé",
           "title": "Hôpital débordé.",
           "image": "./images/1-1",
-          "text": "L’hôpital local manque de personnel et cherche des volontaires pour aider à la logistique.",
+          "text": "L'hôpital local manque de personnel et cherche des volontaires pour aider à la logistique.",
           "accept": {
             "eco": 0,
             "pouvoir": 0,
-            "population": 5,
-            "sante": 10
+            "population": 1,
+            "sante": 2
           },
           "reject": {
             "eco": -5,
             "pouvoir": 0,
-            "population": -5,
-            "sante": -10
+            "population": -1,
+            "sante": -2
           }
         },
         {
@@ -127,14 +127,14 @@
           "accept": {
             "eco": 0,
             "pouvoir": 0,
-            "population": 5,
-            "sante": 10
+            "population": 1,
+            "sante": 2
           },
           "reject": {
-            "eco": -5,
+            "eco": 0,
             "pouvoir": 0,
-            "population": -5,
-            "sante": -10
+            "population": -1,
+            "sante": -2
           }
         },
         {
@@ -145,15 +145,15 @@
           "text": "Après une longue journée de travail, tu passes devant ton fast-food préféré.",
           "accept": {
             "eco": 0,
-            "pouvoir": 0,
-            "population": 5,
-            "sante": 10
+            "pouvoir": -1,
+            "population": 0,
+            "sante": -2
           },
           "reject": {
-            "eco": -5,
-            "pouvoir": 0,
-            "population": -5,
-            "sante": -10
+            "eco": 0,
+            "pouvoir": 1,
+            "population": 0,
+            "sante": 2
           }
         },
         {
@@ -163,16 +163,16 @@
           "image": "./images/1-4",
           "text": "La mairie remplace des places de stationnement par une piste cyclable.",
           "accept": {
-            "eco": 0,
+            "eco": 2,
             "pouvoir": 0,
-            "population": 5,
-            "sante": 10
+            "population": 0,
+            "sante": 1
           },
           "reject": {
-            "eco": -5,
+            "eco": -2,
             "pouvoir": 0,
-            "population": -5,
-            "sante": -10
+            "population": 0,
+            "sante": -1
           }
         },
         {
@@ -184,22 +184,22 @@
           "accept": {
             "eco": 0,
             "pouvoir": 0,
-            "population": 5,
-            "sante": 10
+            "population": 1,
+            "sante": 3
           },
           "reject": {
-            "eco": -5,
+            "eco": 0,
             "pouvoir": 0,
-            "population": -5,
-            "sante": -10
+            "population": -1,
+            "sante": -3
           }
         },
         {
           "id": "10",
           "category": "finances",
-          "title": "Les citoyens réclament des services publiques.",
-          "image": "../images/3706263.jpg",
-          "text": "Augmenter les impôts des + riches ",
+          "title": "Augmenter les impôts des + riches",
+          "image": "./images/2-1",
+          "text": "Les citoyens réclament des services publiques.",
           "accept": {
             "eco": 2,
             "pouvoir": -5,
@@ -216,9 +216,9 @@
         {
           "id": "11",
           "category": "finances",
-          "title": "Les dépenses militaires explosent",
-          "image": "../images/2005.i121.001_isometric_global_financial_crisis_set-02.jpg",
-          "text": "Maintenir la sécurité sociale.",
+          "title": "Maintenir la sécurité sociale.",
+          "image": "./images/2-2",
+          "text": "Les dépenses militaires explosent",
           "accept": {
             "eco": 2,
             "pouvoir": 5,
@@ -236,7 +236,7 @@
           "id": "12",
           "category": "finances",
           "title": "Céder pour sauver l'emploi ?",
-          "image": "../images/10393154.jpg",
+          "image": "./images/2-3",
           "text": "Une grande entreprise menace de se délocaliser si les salaires féminins sont augmentés.",
           "accept": {
             "eco": 0,
@@ -255,7 +255,7 @@
           "id": "13",
           "category": "finances",
           "title": "Un scandale éclate sur notre ministre des finances.",
-          "image": "../images/6422185.jpg",
+          "image": "./images/2-4",
           "text": "On le défend publiquement",
           "accept": {
             "eco": 0,
@@ -273,9 +273,9 @@
         {
           "id": "14",
           "category": "finances",
-          "title": "Un parti veut censurer les médias qui parlent d'inégalités.",
-          "image": "../images/2208.i039.030.F.m004.c9.fake news disinformation propaganda isometric.jpg",
-          "text": "Soutenir la censure au niveau politique.",
+          "title": "Soutenir la censure au niveau politique.",
+          "image": "./images/2-5",
+          "text": "Un parti veut censurer les médias qui parlent d'inégalités.",
           "accept": {
             "eco": 0,
             "pouvoir": -5,
@@ -293,7 +293,7 @@
           "id": "15",
           "category": "population",
           "title": "Le ministre du budget veut baisser les congés parentaux pour réduire les coûts",
-          "image": "../images/2988.jpg",
+          "image": "./images/3-1",
           "text": "Accepter cette mesure impopulaire pour économiser de l'argent ?",
           "accept": {
             "eco": 5,
@@ -312,7 +312,7 @@
           "id": "16",
           "category": "population",
           "title": "Un mouvement étudiant bloque les universités",
-          "image": "../images/university.jpg",
+          "image": "./images/3-2",
           "text": "Envoyer la police pour rétablir l'ordre ?",
           "accept": {
             "eco": 0,
@@ -331,7 +331,7 @@
           "id": "17",
           "category": "population",
           "title": "Les hôpitaux publics sont débordés",
-          "image": "../images/urgency.jpg",
+          "image": "./images/3-3",
           "text": "Investir massivement dans la santé au détriment d'autres budgets ?",
           "accept": {
             "eco": -5,
@@ -350,7 +350,7 @@
           "id": "18",
           "category": "population",
           "title": "Les loyers augmentent brutalement dans les grandes villes.",
-          "image": "../images/logement_sold_out.jpg",
+          "image": "./images/3-4",
           "text": "Bloquer les loyers par décret ?",
           "accept": {
             "eco": -3,
@@ -369,7 +369,7 @@
           "id": "19",
           "category": "population",
           "title": "Les citoyens réclament un revenu universel.",
-          "image": "../images/egality_money.jpg",
+          "image": "./images/3-5",
           "text": "Mettre en place un revenu de base pour tous ?",
           "accept": {
             "eco": -8,
