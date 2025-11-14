@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Indie Flower", cursive;
+    font-size: 22px;
+
+    .menu {
+        max-width: 100%;
+        display: flex;
+        background-color: #5f2c30;
+        justify-content: space-between;
+
+        .logo {
+
+            img {
+                display: flex;
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        nav {
+            list-style: none;
+            display: flex;
+            align-items: center;
+
+            li {
+
+                a {
+                    color: #dac178;
+                    text-decoration: none;
+                    margin: 0 20px;
+                }
+            }
+        }
+    }
+
+    .main {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        background-image: url('../images/background/la-texture-du-papier.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        color: #5f2c30;
+
+        h1 {
+            padding: 20px;
+            font-size: 48px;
+        }
+
+        .description {
+            max-width: 80%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+
+            .span_title {
+                padding: 10px;
+                text-decoration: underline;
+                font-weight: bold;
+            }
+        }
+
+        button {
+            width: 100px;
+            padding: 15px;
+            margin: 22px;
+            border: none;
+            border-radius: 15px;
+            font-family: "Indie Flower", cursive;
+            font-size: 20px;
+            background-color: #5f2c30;
+            cursor: pointer;
+
+            a {
+                color: #dac178;
+                text-decoration: none;
+                font-size: 20px;
+                padding: 15px;
+
+                &:hover {
+                    color: #5f2c30;
+                }
+            }
+
+            &:hover {
+                color: #5f2c30;
+                background-color: #dac178;
+                box-shadow: rgba(95, 44, 48, 0.25) 0px 54px 55px, rgba(95, 44, 48, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(95, 44, 48, 0.17) 0px 12px 13px, rgba(95, 44, 48, 0.09) 0px -3px 5px;
+            }
+        }
+
+        .name {
+            width: 100%;
+            text-align: center;
+            padding: 40px 0;
+
+            .write_name {
+                padding: 10px 0;
+                text-decoration: underline;
+                font-weight: bold;
+            }
+
+            input {
+                padding: 5px;
+                border-radius: 10px;
+
+                input {
+                    width: auto;
+                }
+            }
+
+            .buttonSend {
+                padding: 5px;
+                color: #dac178;
+
+                &:hover {
+                    color: #5f2c30;
+                }
+            }
+        }
+
+        .click_button {
+            padding: 20px 0;
+        }
+    }
+
+    .game-pley-container {
+        border: 4px solid green;
+    }
+
+    .footer {
+        background-color: #5f2c30;
+        color: #dac178;
+        padding: 15px;
+        text-align: center;
+    }
+}
+
+#unity-canvas {
+    width: 960px;
+    height: 600px;
+    background: #231f20;
+
+}
