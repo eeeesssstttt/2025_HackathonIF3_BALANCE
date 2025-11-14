@@ -1,0 +1,389 @@
+{
+  "decks": [
+    {
+      "id": "deck-001",
+      "title": "Regular Card",
+      "cards": [
+        {
+          "id": "0",
+          "category": "environnement",
+          "title": "Arbre ou Parking",
+          "image": "./images/cut-trees.jpg",
+          "text": "Le conseil municipal veut couper les arbres de ton quartier pour agrandir le parking.",
+          "accept": {
+            "eco": 10,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "1",
+          "category": "environnement",
+          "title": "Tri sélectif fatiguant",
+          "image": "./images/tri-selectif.jpg",
+          "accept": {
+            "eco": 10,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "2",
+          "category": "environnement",
+          "title": "Vacances ou Empreinte carbone ?",
+          "image": "./images/holidays.avif",
+          "text": "Tes amis partent en avion pour une semaine à Bali.",
+          "accept": {
+            "eco": 10,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "3",
+          "category": "environnement",
+          "title": "Manifestation pour le climat",
+          "image": "./images/manifestation.jpg",
+          "text": "Une grande marche pour le climat est organisée ce week-end.",
+          "accept": {
+            "eco": 10,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "4",
+          "category": "environnement",
+          "title": "Centrale éolienne dans la région.",
+          "image": "./images/manifestation.jpg",
+          "text": "Une entreprise propose d'installer des éoliennes sur les collines voisines.",
+          "accept": {
+            "eco": 10,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "5",
+          "category": "santé",
+          "title": "Hôpital débordé.",
+          "image": "./images/hopital.jpg",
+          "text": "L’hôpital local manque de personnel et cherche des volontaires pour aider à la logistique.",
+          "accept": {
+            "eco": 0,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 10
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": -10
+          }
+        },
+        {
+          "id": "6",
+          "category": "santé",
+          "title": "Sport ou canapé ?",
+          "image": "./images/sport-canape.jpg",
+          "text": "Tes amis te proposent de courir le matin avant le travail.",
+          "accept": {
+            "eco": 0,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 10
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": -10
+          }
+        },
+        {
+          "id": "7",
+          "category": "santé",
+          "title": "Fast-food ou repas maison ?",
+          "image": "./images/fast-food.avif",
+          "text": "Après une longue journée de travail, tu passes devant ton fast-food préféré.",
+          "accept": {
+            "eco": 0,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 10
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": -10
+          }
+        },
+        {
+          "id": "8",
+          "category": "santé",
+          "title": "Piste cyclable",
+          "image": "./images/pist-cyclable.webp",
+          "text": "La mairie remplace des places de stationnement par une piste cyclable.",
+          "accept": {
+            "eco": 0,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 10
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": -10
+          }
+        },
+        {
+          "id": "9",
+          "category": "santé",
+          "title": "Campagne de vaccination gratuite",
+          "image": "./images/vaccination.webp",
+          "text": "Le centre de santé propose une vaccination gratuite pour tous.",
+          "accept": {
+            "eco": 0,
+            "pouvoir": 0,
+            "population": 5,
+            "sante": 10
+          },
+          "reject": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": -10
+          }
+        },
+        {
+          "id": "10",
+          "category": "finances",
+          "title": "Les citoyens réclament des services publiques.",
+          "image": "../images/3706263.jpg",
+          "text": "Augmenter les impôts des + riches ",
+          "accept": {
+            "eco": 2,
+            "pouvoir": -5,
+            "population": 5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": -2,
+            "pouvoir": 5,
+            "population": -5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "11",
+          "category": "finances",
+          "title": "Les dépenses militaires explosent",
+          "image": "../images/2005.i121.001_isometric_global_financial_crisis_set-02.jpg",
+          "text": "Maintenir la sécurité sociale.",
+          "accept": {
+            "eco": 2,
+            "pouvoir": 5,
+            "population": 0,
+            "sante": 0
+          },
+          "reject": {
+            "eco": -2,
+            "pouvoir": 5,
+            "population": 0,
+            "sante": 0
+          }
+        },
+        {
+          "id": "12",
+          "category": "finances",
+          "title": "Céder pour sauver l'emploi ?",
+          "image": "../images/10393154.jpg",
+          "text": "Une grande entreprise menace de se délocaliser si les salaires féminins sont augmentés.",
+          "accept": {
+            "eco": 0,
+            "pouvoir": -2,
+            "population": -5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": 0,
+            "pouvoir": 2,
+            "population": 5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "13",
+          "category": "finances",
+          "title": "Un scandale éclate sur notre ministre des finances.",
+          "image": "../images/6422185.jpg",
+          "text": "On le défend publiquement",
+          "accept": {
+            "eco": 0,
+            "pouvoir": 3,
+            "population": -5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": 0,
+            "pouvoir": -3,
+            "population": 5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "14",
+          "category": "finances",
+          "title": "Un parti veut censurer les médias qui parlent d'inégalités.",
+          "image": "../images/2208.i039.030.F.m004.c9.fake news disinformation propaganda isometric.jpg",
+          "text": "Soutenir la censure au niveau politique.",
+          "accept": {
+            "eco": 0,
+            "pouvoir": -5,
+            "population": -5,
+            "sante": 0
+          },
+          "reject": {
+            "eco": 0,
+            "pouvoir": 5,
+            "population": 5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "15",
+          "category": "population",
+          "title": "Le ministre du budget veut baisser les congés parentaux pour réduire les coûts",
+          "image": "../images/2988.jpg",
+          "text": "Accepter cette mesure impopulaire pour économiser de l'argent ?",
+          "accept": {
+            "eco": 5,
+            "pouvoir": -5,
+            "population": -10,
+            "sante": -2
+          },
+          "reject": {
+            "eco": -3,
+            "pouvoir": 3,
+            "population": 5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "16",
+          "category": "population",
+          "title": "Un mouvement étudiant bloque les universités",
+          "image": "../images/university.jpg",
+          "text": "Envoyer la police pour rétablir l'ordre ?",
+          "accept": {
+            "eco": 0,
+            "pouvoir": 5,
+            "population": -5,
+            "sante": -2
+          },
+          "reject": {
+            "eco": -2,
+            "pouvoir": -5,
+            "population": 5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "17",
+          "category": "population",
+          "title": "Les hôpitaux publics sont débordés",
+          "image": "../images/urgency.jpg",
+          "text": "Investir massivement dans la santé au détriment d'autres budgets ?",
+          "accept": {
+            "eco": -5,
+            "pouvoir": 0,
+            "population": 8,
+            "sante": 10
+          },
+          "reject": {
+            "eco": 3,
+            "pouvoir": 0,
+            "population": -5,
+            "sante": -8
+          }
+        },
+        {
+          "id": "18",
+          "category": "population",
+          "title": "Les loyers augmentent brutalement dans les grandes villes.",
+          "image": "../images/logement_sold_out.jpg",
+          "text": "Bloquer les loyers par décret ?",
+          "accept": {
+            "eco": -3,
+            "pouvoir": -2,
+            "population": 8,
+            "sante": 0
+          },
+          "reject": {
+            "eco": 3,
+            "pouvoir": 2,
+            "population": -5,
+            "sante": 0
+          }
+        },
+        {
+          "id": "19",
+          "category": "population",
+          "title": "Les citoyens réclament un revenu universel.",
+          "image": "../images/egality_money.jpg",
+          "text": "Mettre en place un revenu de base pour tous ?",
+          "accept": {
+            "eco": -8,
+            "pouvoir": -3,
+            "population": 10,
+            "sante": 3
+          },
+          "reject": {
+            "eco": 3,
+            "pouvoir": 3,
+            "population": -5,
+            "sante": 0
+          }
+        }
+      ]
+    }
+  ]
+}

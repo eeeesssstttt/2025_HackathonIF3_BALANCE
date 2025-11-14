@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   sceneLoader: {fileID: 1411618966}
-  cardManager: {fileID: 236626914}
+  cardManager: {fileID: 0}
   jsonFile: {fileID: 4900000, guid: cd13465142c7f1e4db4b7d1a74edefb5, type: 3}
 --- !u!4 &235408101
 Transform:
