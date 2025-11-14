@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+    <title>Game Balance</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+        <!-- JS -->
+    <script src="./js/main.js" defer></script>
+    <script src="./js/input.js" defer></script>
+  </head>
+  <body>
+    <!-- MENU -->
+    <div id="menu" class="menu">
+        <div class="logo">
+            <a href="./index.html">
+                <img src="./images/logo/93803121.png" alt="Image du logo">
+            </a>
+        </div>
+        <nav>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./play.html">Play</a></li>
+        </nav>
+    </div>
+
+    <div id="main" class="main">
+      <h1 class="h1_play">
+        Bonjour <span></span>
+      </h1>
+        
+      <div id="game-play-container" class="game-play-container">
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
+      </div>
+    </div>
+    
+    <div id="footer" class="footer">
+        <p>@ Copyright exercice Hackaton 2025</p>
+    </div>
+
+    <!-- UNITY LOADER (always first) -->
+    <script src="Build/www_cockpit.loader.js"></script>
+    <!-- JS -->
+    <script src="./script.js"></script>
+  </body>
+</html>

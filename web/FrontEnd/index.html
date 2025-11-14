@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+    <title>Game Balance</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- JS -->
+    <script src="./js/main.js" defer></script>
+    <script src="./js/input.js" defer></script>
+  </head>
+  <body>
+    <!-- MENU -->
+    <div id="menu" class="menu">
+        <div class="logo">
+            <a href="./index.html">
+                <img src="./images/logo/93803121.png" alt="Image du logo">
+            </a>
+        </div>
+        <nav>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./play.html">Play</a></li>
+        </nav>
+    </div>
+
+    <div id="main" class="main">
+      <h1>Game Balance</h1>
+      <div>
+        <p class="description">
+            <span class="span_title">Description of the game :</span>
+            <span>Balance is a narrative strategy game where every choice shapes your world. Manage survival, wealth, ecology, and politics in a near-real setting inspired by Reigns, Civilization, and Choose Your Own Adventure. Every decision tips the scales — can you keep your world in balance?</span>
+        </p>
+      </div>
+      <div class="name">
+        <p class="write_name">What's your name ?</p>
+        <input class="input" type="text" placeholder="Enter your name">
+      </div>
+      <p class="click_button">Click below to begin your adventure!</p>
+      <button id="start-btn" class="start-btn"><a href="./play.html">Play</a></button>
+    </div>
+    
+    <div id="footer" class="footer">
+        <p>@ Copyright exercice Hackaton 2025</p>
+    </div>
+
+    <!-- UNITY LOADER (always first) -->
+    <script src="Build/www_cockpit.loader.js"></script>
+    <!-- JS -->
+    <script src="./script.js"></script>
+  </body>
+</html>
