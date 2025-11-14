@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEngine.UI;
 
 // Uncomment GameManager things at some point.
@@ -23,7 +23,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private CardManager cardManager;
     // "scene manager"
     [SerializeField] SceneLoader sceneLoader;
 
@@ -37,13 +36,6 @@ public class GameManager : MonoBehaviour
 
     // json data
     [SerializeField] private TextAsset jsonFile;
-
-    public void GameStarted()
-    {
-        cardManager.SetJsonFile(jsonFile);
-        cardManager.StartCards();
-    }
-}
 
     // private CardList cardList;
     // private int currentCardIndex = 0;

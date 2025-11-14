@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::testJSON
   textJSON: {fileID: 4900000, guid: cd13465142c7f1e4db4b7d1a74edefb5, type: 3}
-  cardBehavior: {fileID: 7922306472237358154}
+  cardBehavior: {fileID: 1321425816021128905}
 --- !u!4 &627401275
 Transform:
   m_ObjectHideFlags: 0
@@ -302,7 +302,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &7687863401964665621
+--- !u!1001 &1214801646735392905
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -310,59 +310,59 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4819330755664372819, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+    - target: {fileID: 1236181664183401289, guid: f256e083e6f527e4d899399e8130d400, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.2
       objectReference: {fileID: 0}
-    - target: {fileID: 4819330755664372819, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+    - target: {fileID: 1236181664183401289, guid: f256e083e6f527e4d899399e8130d400, type: 3}
       propertyPath: m_LocalPosition.y
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 4819330755664372819, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+    - target: {fileID: 1236181664183401289, guid: f256e083e6f527e4d899399e8130d400, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4819330755664372819, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+    - target: {fileID: 1236181664183401289, guid: f256e083e6f527e4d899399e8130d400, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4819330755664372819, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+    - target: {fileID: 1236181664183401289, guid: f256e083e6f527e4d899399e8130d400, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4819330755664372819, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+    - target: {fileID: 1236181664183401289, guid: f256e083e6f527e4d899399e8130d400, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4819330755664372819, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+    - target: {fileID: 1236181664183401289, guid: f256e083e6f527e4d899399e8130d400, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4819330755664372819, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+    - target: {fileID: 1236181664183401289, guid: f256e083e6f527e4d899399e8130d400, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4819330755664372819, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+    - target: {fileID: 1236181664183401289, guid: f256e083e6f527e4d899399e8130d400, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4819330755664372819, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+    - target: {fileID: 1236181664183401289, guid: f256e083e6f527e4d899399e8130d400, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6692030180082694534, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+    - target: {fileID: 5586289343016681083, guid: f256e083e6f527e4d899399e8130d400, type: 3}
       propertyPath: m_Name
-      value: Card json works
+      value: Card DesignBase
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
---- !u!114 &7922306472237358154 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: f256e083e6f527e4d899399e8130d400, type: 3}
+--- !u!114 &1321425816021128905 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8711759172459048412, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
-  m_PrefabInstance: {fileID: 7687863401964665621}
+  m_CorrespondingSourceObject: {fileID: 8474873667225307292, guid: f256e083e6f527e4d899399e8130d400, type: 3}
+  m_PrefabInstance: {fileID: 1214801646735392905}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -375,5 +375,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 561271451}
-  - {fileID: 7687863401964665621}
+  - {fileID: 1214801646735392905}
   - {fileID: 627401275}
