@@ -15,7 +15,8 @@ public class CardBehavior : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     [SerializeField] private TextMeshProUGUI accept;
     [SerializeField] private TextMeshProUGUI reject;
 
-    private Vector3 initialPosition;
+    public Vector3 initialPosition;
+    public Vector3 iinitialPosition;
     private bool isMovable;
     public event Action cardMoved;
     private float _distanceMoved;
@@ -24,6 +25,7 @@ public class CardBehavior : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     private void Start()
     {
         initialPosition = transform.localPosition;
+        iinitialPosition = transform.localPosition;
     }
 
     public void DisplayQuestion(string questionText, string textText, string response1Text, string response2Text)
@@ -41,19 +43,30 @@ public class CardBehavior : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (isMovable)
+        {
+            
         transform.localPosition += new Vector3(eventData.delta.x, 0, 0);
 
         float rotationZ = Mathf.LerpAngle(0, 30, Mathf.Abs(transform.localPosition.x - initialPosition.x) / (Screen.width / 2));
         transform.localEulerAngles = new Vector3(0, 0, transform.localPosition.x > initialPosition.x ? -rotationZ : rotationZ);
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (isMovable)
+        {
+            
         initialPosition = transform.localPosition;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (isMovable)
+        {
+            
         _distanceMoved = Mathf.Abs(transform.localPosition.x - initialPosition.x);
 
         if (_distanceMoved < 0.4f * Screen.width)
@@ -70,6 +83,7 @@ public class CardBehavior : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
                 cardMoved?.Invoke();
                 StartCoroutine(SwipeAndReset());
             }
+        }
         }
     }
 

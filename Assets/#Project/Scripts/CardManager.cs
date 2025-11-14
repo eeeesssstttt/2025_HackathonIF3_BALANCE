@@ -42,7 +42,7 @@ public class CardManager : MonoBehaviour
 
     [SerializeField] private TextAsset jsonFile;
     private List<CardData> cardList;
-    private int totalCards;
+    private int totalCards = 20;
 
     [SerializeField] private CardBehavior currentCard;
     [SerializeField] private CardBehavior nextCard;
@@ -59,6 +59,7 @@ public class CardManager : MonoBehaviour
     void Update()
     {
         ScaleNextCard();
+        Debug.Log(currentCard.initialPosition);
     }
 
     private void LoadData()
@@ -66,16 +67,17 @@ public class CardManager : MonoBehaviour
         Root root = JsonUtility.FromJson<Root>(jsonFile.text);
 
         cardList = root.decks[0].cards;// On prend uniquement le premier deck
-        totalCards = cardList.Count;
     }
 
     private void PrepareFirstCards()
     {
+        // currentCard.SaveInitialPosition();
         SetupCard(currentCard, currentCardIndex);
         currentCard.SetMobility(true);
         currentCard.gameObject.SetActive(true);
         currentCard.cardMoved += CardMovedFront;
 
+        // nextCard.SaveInitialPosition();
         SetupCard(nextCard, GetNextIndex(currentCardIndex));
         nextCard.gameObject.SetActive(true);
         nextCard.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
@@ -105,21 +107,43 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    private void ResetNextCardScale()
+    {
+        nextCard.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
+        // Debug.Log("scaled next card back");
+    }
+
     private void CardMovedFront()
     {
         // Swape current et next
-        var temp = currentCard;
-        currentCard = nextCard;
-        nextCard = temp;
+        // var temp = currentCard;
+        // currentCard = nextCard;
+        // nextCard = temp;
 
         // Reset position et rotation de la carte qui derriere
-        nextCard.transform.localPosition = Vector3.zero;
-        nextCard.transform.localEulerAngles = Vector3.zero;
-        nextCard.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
+        // nextCard.transform.localPosition = Vector3.zero;
+        // nextCard.transform.localEulerAngles = Vector3.zero;
+        // nextCard.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
+
+        currentCard.gameObject.SetActive(false);
+
+        currentCard.transform.localEulerAngles = Vector3.zero;
 
         // Maj données de la carte derrière
         currentCardIndex = GetNextIndex(currentCardIndex);
-        SetupCard(nextCard, GetNextIndex(currentCardIndex));
+        SetupCard(currentCard, GetNextIndex(currentCardIndex));
+
+        // currentCard.ResetPosition();
+        Debug.Log(currentCard.iinitialPosition);
+
+        currentCard.gameObject.SetActive(true);
+
+        if (currentCardIndex < totalCards)
+        {
+            SetupCard(currentCard, GetNextIndex(currentCardIndex + 1));
+
+            ResetNextCardScale();
+        }
 
         // Rendre la nouvelle carte devant interactive
         currentCard.SetMobility(true);
