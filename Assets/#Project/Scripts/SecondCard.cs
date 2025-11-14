@@ -23,7 +23,7 @@ public class SecondCard : MonoBehaviour
             float step = Mathf.SmoothStep(0, 5, Mathf.Abs(distanceMoved) / (Screen.width / 2));
             float step2 = Mathf.SmoothStep(0, 3, Mathf.Abs(distanceMoved) / (Screen.width / 2));
             transform.localScale = new Vector3(step2, step, 1);
-            Debug.Log($"grandir {step}");
+            // Debug.Log($"grandir {step}");
         }
     }
     

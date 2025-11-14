@@ -377,11 +377,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976dbd21ee5ecd4478fdde752643b7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  sceneLoader: {fileID: 1411618966}
-  progressBar: {fileID: 0}
+  sceneLoader: {fileID: 0}
+  progressBar: {fileID: 1799405648}
   cardParent: {fileID: 5430508929113176651, guid: 1dfd8c54c0210fe48bd8d6557c59647a, type: 3}
   cardPrefab: {fileID: 6629195306421440032, guid: 1dfd8c54c0210fe48bd8d6557c59647a, type: 3}
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 1568901465}
   jsonFile: {fileID: 4900000, guid: cd13465142c7f1e4db4b7d1a74edefb5, type: 3}
 --- !u!4 &235408101
 Transform:
@@ -2443,51 +2443,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374143276}
   m_CullTransparentMesh: 1
---- !u!1 &1411618965
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1411618967}
-  - component: {fileID: 1411618966}
-  m_Layer: 0
-  m_Name: SceneLoader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1411618966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411618965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78fc8aca7262e946870275b06f7a361, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  actions: {fileID: 0}
---- !u!4 &1411618967
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411618965}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1446979906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,7 +2512,7 @@ MonoBehaviour:
   popuSlider: {fileID: 845440306}
   santeSlider: {fileID: 1799405648}
   pouvoirSlider: {fileID: 1964435520}
-  sceneLoader: {fileID: 1411618966}
+  sceneLoader: {fileID: 0}
 --- !u!4 &1568901466
 Transform:
   m_ObjectHideFlags: 0
@@ -3594,7 +3549,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1687938422}
-  - {fileID: 1411618967}
   - {fileID: 235408101}
   - {fileID: 1568901466}
   - {fileID: 1737096121}

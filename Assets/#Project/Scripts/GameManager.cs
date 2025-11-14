@@ -11,12 +11,26 @@ public class CardData
     public string reponse2;
     public Effect score1; // associé à la reponse 1 
     public Effect score2; // associé à la reponse 2
+
 }
 
 [System.Serializable] // l'ensemble des cartes
 public class CardList
 {
-    public List<CardData> cards;
+    public CardData[] cards;
+}
+
+[System.Serializable] 
+public class Deck
+{
+    public string id;
+    public CardData[] cards;
+}
+
+[System.Serializable] 
+public class DeckList
+{
+    public Deck[] decks;
 }
     
 public class GameManager : MonoBehaviour
@@ -35,59 +49,70 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextAsset jsonFile;
 
     private CardList cardList;
+    private GameObject currentCard;
     private int currentCardIndex = 0;
     private int totalCards = 0; // à definir
 
     void Start()
     {
         LoadData();
-        SetupProgressBar();
+
+        if (cardList == null || cardList.cards.Length == 0)
+        {
+            Debug.LogError("Aucune carte trouvée dans le JSON !");
+            return;
+        }
+
+        totalCards = cardList.cards.Length;
+        progressBar.minValue = 0;
+        progressBar.maxValue = totalCards; // à définir
+        progressBar.value = 0;
+
         CreateNextCard();
     }
 
     private void LoadData() // charge données json
     {
         cardList = JsonUtility.FromJson<CardList>(jsonFile.text);
-        totalCards = cardList.cards.Count; // recup nombre total de cartes
+        // totalCards = cardList.cards.Count; // recup nombre total de cartes
     }
 
-    private void SetupProgressBar() // instantie progress bar
-    {
-        progressBar.minValue = 0;
-        progressBar.maxValue = totalCards; // à definir
-        progressBar.value = 0;
-    }
 
     public void CreateNextCard()
     {
+        if (currentCard != null)
+        {
+            Destroy(currentCard);
+        }
         if (currentCardIndex >= totalCards) // si toutes les cartes sont passé --> fin du jeu
         {
             EndGame();
             return;
         }
 
-        GameObject newCard = Instantiate(cardPrefab, cardParent, false); // instantie nouvelles carte à partir du prefabs
-        SwipeCard swipe = newCard.GetComponent<SwipeCard>(); // recup comportement de SwipeCard.cs
-        CardBehavior behavior = newCard.GetComponent<CardBehavior>();
+        currentCard = Instantiate(cardPrefab, cardParent, false);// instantie nouvelles carte à partir du prefabs
 
-        swipe.cardMoved += OnCardSwiped; // quand la carte esr swipé on appel la fonction
+        SwipeCard swipe = currentCard.GetComponent<SwipeCard>(); 
+        CardBehavior behavior = currentCard.GetComponent<CardBehavior>();
 
-        var cardData = cardList.cards[currentCardIndex];
+        swipe.gameManager = this;
 
-        behavior.DisplayQuestion(null, cardData.question, cardData.reponse1, cardData.reponse2); // affiche question et reponses sur la carte
+        behavior.DisplayQuestion(cardList.cards[currentCardIndex].question, cardList.cards[currentCardIndex].question, cardList.cards[currentCardIndex].reponse1,cardList.cards[currentCardIndex].reponse2 ); // affiche question et reponses sur la carte
     }
 
-    private void OnCardSwiped(bool reponse1 ) // fonction appelée quand la carte est swipé
+    public void OnCardSwiped(bool swipeLeft ) // fonction appelée quand la carte est swipé
     {
         var cardData = cardList.cards[currentCardIndex];
 
-        if (reponse1)
+        if (swipeLeft)
         {
             scoreManager.SliderEffect(cardData.score1);
+            Debug.Log("1 = swipe accept");
         }
         else
         {
             scoreManager.SliderEffect(cardData.score2);
+            Debug.Log("0 = swipe reject");
         }
 
         currentCardIndex++;
@@ -96,9 +121,11 @@ public class GameManager : MonoBehaviour
         CreateNextCard();
     }
     
-    private void EndGame() // toutes les cartes ont été jouées, lance la scene End
+    private void EndGame() 
     {
-            sceneLoader.ChangeScene("End_balance");
+        Debug.Log ("end game");
+        sceneLoader.ChangeScene("End_balance");
+
     }
 
     public void GameStarted()

@@ -7,17 +7,16 @@ public class Effect
     public int eco;
     public int pouvoir;
     public int sante;
-    public int popu;
+    public int population;
 
-    public Effect(int eco, int pouvoir, int sante, int popu)
+    public Effect(int eco, int pouvoir, int sante, int population)
     {
         this.eco = eco;
         this.pouvoir = pouvoir;
         this.sante = sante;
-        this.popu = popu;
+        this.population = population;
     }
 }
-
 
 public class ScoreManager : MonoBehaviour
 {
@@ -45,7 +44,7 @@ public class ScoreManager : MonoBehaviour
         ecoSlider.value = Mathf.Clamp(ecoSlider.value + effect.eco, MIN_VALUE, MAX_VALUE);
         pouvoirSlider.value = Mathf.Clamp(pouvoirSlider.value + effect.pouvoir, MIN_VALUE, MAX_VALUE);
         santeSlider.value = Mathf.Clamp(santeSlider.value + effect.sante, MIN_VALUE, MAX_VALUE);
-        popuSlider.value = Mathf.Clamp(popuSlider.value + effect.popu, MIN_VALUE, MAX_VALUE);
+        popuSlider.value = Mathf.Clamp(popuSlider.value + effect.population, MIN_VALUE, MAX_VALUE);
 
         CheckEnd();
     }
@@ -67,5 +66,4 @@ public class ScoreManager : MonoBehaviour
             sceneLoader.ChangeScene("End_balance");
         }
     }
-
 }
