@@ -133,11 +133,6 @@ public class CardBehavior : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         // Destroy(this);
     }
 
-
-
-
-
-
     // private void Start()
     // {
     //     DisplayQuestion(testSprite, testQuestion, testResponse1, testResponse2);
