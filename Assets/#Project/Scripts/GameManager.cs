@@ -23,9 +23,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
     // "scene manager"
     [SerializeField] SceneLoader sceneLoader;
+
+    // CardManager
+    [SerializeField] CardManager cardManager;
 
     //elements UI
     // [SerializeField] private Slider progressBar;
@@ -41,12 +43,12 @@ public class GameManager : MonoBehaviour
 
     private int totalScore = 0;
 
-    void Start()
-    {
-        // LoadData();
-        // SetupProgressBar();
-        // CreateNextCard();
-    }
+    // void Start()
+    // {
+    //     // LoadData();
+    //     // SetupProgressBar();
+    //     // CreateNextCard();
+    // }
 
     // private void LoadData() // charge données json
     // {
@@ -80,37 +82,37 @@ public class GameManager : MonoBehaviour
     //     behavior.DisplayQuestion(null, cardData.question, cardData.reponse1, cardData.reponse2); // affiche question et reponses sur la carte
     // }
 
-    private void OnCardSwiped() // fonction appelée quand la carte est swipé
-    {
-        // if (currentCardIndex % 2 == 0)
-        // {
-        //     totalScore += cardList.cards[currentCardIndex].score1;
-        // }
-        // else
-        // {
-        //     totalScore += cardList.cards[currentCardIndex].score2;
-        // }
-        // currentCardIndex++; // on fait +1 dans l'index
-        // progressBar.value = currentCardIndex; // met à jour la bar de progression
+    // private void OnCardSwiped() // fonction appelée quand la carte est swipé
+    // {
+    //     // if (currentCardIndex % 2 == 0)
+    //     // {
+    //     //     totalScore += cardList.cards[currentCardIndex].score1;
+    //     // }
+    //     // else
+    //     // {
+    //     //     totalScore += cardList.cards[currentCardIndex].score2;
+    //     // }
+    //     // currentCardIndex++; // on fait +1 dans l'index
+    //     // progressBar.value = currentCardIndex; // met à jour la bar de progression
 
-        // CreateNextCard(); // crée la carte d'apres
-    }
+    //     // CreateNextCard(); // crée la carte d'apres
+    // }
 
-    private void EndGame() // toutes les cartes ont été jouées, lance la scene End
-    {
-        // if (totalCards <= 9)
-        // {
-        //     sceneLoader.ChangeScene("End");
-        // }
-        // else if (totalScore <= 20)
-        // {
-        //     sceneLoader.ChangeScene("End2");
-        // }
-        // else
-        // {
-        //     sceneLoader.ChangeScene("End3");
-        // }
-    }
+    // private void EndGame() // toutes les cartes ont été jouées, lance la scene End
+    // {
+    //     // if (totalCards <= 9)
+    //     // {
+    //     //     sceneLoader.ChangeScene("End");
+    //     // }
+    //     // else if (totalScore <= 20)
+    //     // {
+    //     //     sceneLoader.ChangeScene("End2");
+    //     // }
+    //     // else
+    //     // {
+    //     //     sceneLoader.ChangeScene("End3");
+    //     // }
+    // }
 
     public void GameStarted() // lancement de la main scene
     {

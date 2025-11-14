@@ -23,7 +23,13 @@ public class CardList
 
 public class CardManager : MonoBehaviour
 {
+    // The card knows its GameManager.
+    [SerializeField] private GameManager gameManager;
     /* Card Manager must gather: InstantiateCards, SwipeCard, SecondCard */
+
+    [SerializeField] private CardBehavior currentCard;
+    [SerializeField] private CardBehavior nextCard;
+
 
 
     private CardList cardList;
@@ -32,17 +38,44 @@ public class CardManager : MonoBehaviour
 
 
     //elements UI
-    [SerializeField] private Transform cardParent;
-    [SerializeField] private GameObject cardPrefab;
+    [SerializeField] private Transform cardCanvas;
+    // [SerializeField] private CardBehavior cardPrefab;
 
     // json data
     [SerializeField] private TextAsset jsonFile;
+
+
 
     private void LoadData() // charge données json
     {
         cardList = JsonUtility.FromJson<CardList>(jsonFile.text);
         totalCards = cardList.cards.Count; // recup nombre total de cartes
     }
+
+    public void PrepareFirstCards()
+    {
+        // CardBehavior currentCard = Instantiate(cardPrefab, cardParent, false); // instantie nouvelles carte à partir du prefabs
+        // currentCard.GetComponent<Renderer>().sortingLayerName = "CurrentCard";
+        currentCard.DisplayQuestion("current", "current", "current", "current"); // cardList.cards[currentCardIndex]
+        currentCard.gameObject.SetActive(true);
+
+        // CardBehavior nextCard = Instantiate(cardPrefab, cardParent, false); // instantie nouvelles carte à partir du prefabs
+        // nextCard.GetComponent<Renderer>().sortingLayerName = "NextCard";
+        nextCard.DisplayQuestion("next", "next", "next", "next"); // cardList.cards[currentCardIndex + 1]
+        nextCard.gameObject.SetActive(true);
+
+        cardCanvas.gameObject.SetActive(true);
+    }
+
+    // public void UpdateCurrentCard()
+    // {
+
+    // }
+
+    // public void PrepareNextCard()
+    // {
+
+    // }
 
 
     public void CreateNextCard()
@@ -53,15 +86,17 @@ public class CardManager : MonoBehaviour
         //     return;
         // }
 
-        GameObject newCard = Instantiate(cardPrefab, cardParent, false); // instantie nouvelles carte à partir du prefabs
-        SwipeCard swipe = newCard.GetComponent<SwipeCard>(); // recup comportement de SwipeCard.cs
-        CardBehavior behavior = newCard.GetComponent<CardBehavior>();
+        // CardBehavior currentCard = Instantiate(cardPrefab, cardParent, false); // instantie nouvelles carte à partir du prefabs
 
-        swipe.cardMoved += OnCardSwiped; // quand la carte esr swipé on appel la fonction
 
-        var cardData = cardList.cards[currentCardIndex];
+        // SwipeCard swipe = currentCard.GetComponent<SwipeCard>(); // recup comportement de SwipeCard.cs
+        // CardBehavior behavior = newCard.GetComponent<CardBehavior>();
 
-        behavior.DisplayQuestion(null, cardData.question, cardData.reponse1, cardData.reponse2); // affiche question et reponses sur la carte
+        currentCard.cardMoved += OnCardSwiped; // quand la carte esr swipé on appel la fonction
+
+        // var cardData = cardList.cards[currentCardIndex];
+
+        // currentCard.DisplayQuestion(null, cardData.question, cardData.reponse1, cardData.reponse2); // affiche question et reponses sur la carte
     }
 
     private void OnCardSwiped() // fonction appelée quand la carte est swipé
@@ -83,5 +118,8 @@ public class CardManager : MonoBehaviour
     void Start()
     {
         LoadData();
+        PrepareFirstCards();
+        Debug.Log(cardList.cards.Count);
+        Debug.Log(totalCards);
     }
 }

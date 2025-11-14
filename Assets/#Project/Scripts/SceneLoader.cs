@@ -32,11 +32,11 @@ public class SceneLoader : MonoBehaviour
 
 
     // ++++TEMPORAIRE++++ OnEnable est aussi temporaire et permet de voir qu'on change de scène:
-    void OnEnable()
-    {
-        actions.FindActionMap("Player").Enable();
-        actions.FindActionMap("Player").FindAction("ChangeScene").performed += OnClick;
-    }
+    // void OnEnable()
+    // {
+    //     actions.FindActionMap("Player").Enable();
+    //     actions.FindActionMap("Player").FindAction("ChangeScene").performed += OnClick;
+    // }
     // void OnDisable()
     // {
     //     actions.FindActionMap("Player").Disable();
