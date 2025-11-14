@@ -12,7 +12,7 @@ if (button) {
     console.log(inputValue); // audrey
 
     // Stocker une chaîne de caractères
-    localStorage.setItem("", inputValue);
+    localStorage.setItem("playerName", inputValue);
   });
 }
 

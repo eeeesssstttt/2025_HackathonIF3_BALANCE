@@ -55,10 +55,18 @@ body {
         background-position: center;
         background-size: cover;
         color: #5f2c30;
+        position: relative;
 
         h1 {
             padding: 20px;
             font-size: 48px;
+        }
+
+        .button_go {
+            position: absolute;
+            top: 50%;
+            background-color: #dac178;
+            color: #5f2c30;
         }
 
         .description {
