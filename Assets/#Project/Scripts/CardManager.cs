@@ -1,50 +1,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Prepping classes to read from the JSON file.
-[System.Serializable] // carte individuellement
-public class CardData
+[System.Serializable]
+public class CardChoice
 {
-    public string question;
-    public string reponse1;
-    public string reponse2;
-    public int score1; // associé à la reponse 1 
-    public int score2; // associé à la reponse 2
+    public int eco;
+    public int pouvoir;
+    public int population;
+    public int sante;
 }
 
-[System.Serializable] // l'ensemble des cartes
-public class CardList
+[System.Serializable]
+public class CardData
 {
+    public string id;
+    public string category;
+    public string title;
+    public string image;
+    public string text;
+    public CardChoice accept;
+    public CardChoice reject;
+}
+
+[System.Serializable]
+public class Deck
+{
+    public string id;
+    public string title;
     public List<CardData> cards;
 }
 
-
-
+[System.Serializable]
+public class Root
+{
+    public List<Deck> decks;
+}
 
 public class CardManager : MonoBehaviour
 {
-    // GameManager
     [SerializeField] private GameManager gameManager;
 
-    // JSON data
     [SerializeField] private TextAsset jsonFile;
-    private CardList cardList;
+    private List<CardData> cardList;
+    private int totalCards;
 
-    // Cards and Canvas objects
     [SerializeField] private CardBehavior currentCard;
     [SerializeField] private CardBehavior nextCard;
     [SerializeField] private Transform cardCanvas;
 
-    // Card index and total amount of cards.
     private int currentCardIndex = 0;
-    private int totalCards = 0; // à definir
 
     void Start()
     {
         LoadData();
         PrepareFirstCards();
-        // Debug.Log(cardList.cards.Count);
-        // Debug.Log(totalCards);
     }
 
     void Update()
@@ -52,81 +61,68 @@ public class CardManager : MonoBehaviour
         ScaleNextCard();
     }
 
-    private void LoadData() // charge données json
+    private void LoadData()
     {
-        cardList = JsonUtility.FromJson<CardList>(jsonFile.text);
-        totalCards = cardList.cards.Count; // recup nombre total de cartes
+        Root root = JsonUtility.FromJson<Root>(jsonFile.text);
+
+        cardList = root.decks[0].cards;// On prend uniquement le premier deck
+        totalCards = cardList.Count;
     }
 
-    public void PrepareFirstCards()
+    private void PrepareFirstCards()
     {
-        currentCard.DisplayQuestion("current", "current", "current", "current"); // cardList.cards[currentCardIndex]
+        SetupCard(currentCard, currentCardIndex);
         currentCard.SetMobility(true);
         currentCard.gameObject.SetActive(true);
         currentCard.cardMoved += CardMovedFront;
 
-        nextCard.DisplayQuestion("next", "next", "next", "next"); // cardList.cards[currentCardIndex + 1]
+        SetupCard(nextCard, GetNextIndex(currentCardIndex));
         nextCard.gameObject.SetActive(true);
         nextCard.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
 
         cardCanvas.gameObject.SetActive(true);
     }
 
-    public void ScaleNextCard()
+    private void SetupCard(CardBehavior card, int index)
+    {
+        var data = cardList[index];
+        card.DisplayQuestion(data.title, data.text, "<- Accepter", "Rejecter ->");
+    }
+
+    private int GetNextIndex(int index)
+    {
+        return (index + 1) % totalCards;
+    }
+
+    private void ScaleNextCard()
     {
         float distanceMoved = currentCard.transform.localPosition.x;
 
         if (Mathf.Abs(distanceMoved) > 0)
         {
-            float step = Mathf.SmoothStep(0.8f, 1, Mathf.Abs(distanceMoved) / (Screen.width / 2));
-            float step2 = Mathf.SmoothStep(0.8f, 1, Mathf.Abs(distanceMoved) / (Screen.width / 2));
-            nextCard.transform.localScale = new Vector3(step2, step, 1);
+            float step = Mathf.SmoothStep(0.8f, 1f, Mathf.Abs(distanceMoved) / (Screen.width / 2));
+            nextCard.transform.localScale = new Vector3(step, step, 1);
         }
     }
 
-    void CardMovedFront()
+    private void CardMovedFront()
     {
-        UpdateCurrentCard(); // La currentcard doit disparaître temporairement puis réapparaître à sa position initiale avec les infos de la carte de currentCardIndex + 1, si possible, currentCardIndex += 1 si possible
-        UpdateNextCard(); // La nextcard doit récupérer les informations de la du nouveau currentCardIndex + 1, si possible.
+        // Swape current et next
+        var temp = currentCard;
+        currentCard = nextCard;
+        nextCard = temp;
+
+        // Reset position et rotation de la carte qui derriere
+        nextCard.transform.localPosition = Vector3.zero;
+        nextCard.transform.localEulerAngles = Vector3.zero;
+        nextCard.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
+
+        // Maj données de la carte derrière
+        currentCardIndex = GetNextIndex(currentCardIndex);
+        SetupCard(nextCard, GetNextIndex(currentCardIndex));
+
+        // Rendre la nouvelle carte devant interactive
+        currentCard.SetMobility(true);
+        currentCard.cardMoved += CardMovedFront;
     }
-
-
-    public void UpdateCurrentCard()
-    {
-        // La currentcard doit disparaître temporairement puis réapparaître à sa position initiale avec les infos de la carte de currentCardIndex + 1, si possible
-        // currentCardIndex += 1 si possible
-
-        // ANCIEN CODE (CreateNextCard)
-        // if (currentCardIndex >= totalCards) // si toutes les cartes sont passé --> fin du jeu
-        // {
-        //     EndGame();
-        //     return;
-        // }
-
-        // var cardData = cardList.cards[currentCardIndex];
-
-        // currentCard.DisplayQuestion(null, cardData.question, cardData.reponse1, cardData.reponse2); // affiche question et reponses sur la carte
-    }
-
-    public void UpdateNextCard()
-    {
-        // La nextcard doit récupérer les informations de la du nouveau currentCardIndex + 1, si possible.
-    }
-
-    // private void OnCardSwiped() // fonction appelée quand la carte est swipé
-    // {
-    //     // if (currentCardIndex % 2 == 0)
-    //     // {
-    //     //     totalScore += cardList.cards[currentCardIndex].score1;
-    //     // }
-    //     // else
-    //     // {
-    //     //     totalScore += cardList.cards[currentCardIndex].score2;
-    //     // }
-    //     // currentCardIndex++; // on fait +1 dans l'index
-    //     // progressBar.value = currentCardIndex; // met à jour la bar de progression
-
-    //     CreateNextCard(); // crée la carte d'apres
-    // }
-
 }
