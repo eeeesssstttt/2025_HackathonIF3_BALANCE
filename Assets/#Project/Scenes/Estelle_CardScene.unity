@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &65700785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6649801434991589074, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+  m_PrefabInstance: {fileID: 7687863401964665621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &561271448
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +332,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 835307772789245762, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 835307772789245762, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207198566599777016, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207198566599777016, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4819330755664372819, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.2
@@ -368,7 +395,11 @@ PrefabInstance:
     - target: {fileID: 8711759172459048412, guid: f1a46045fdf60bd4ea70277af443593e, type: 3}
       propertyPath: image
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 1735593831}
+=======
+      objectReference: {fileID: 65700785}
+>>>>>>> e9984c28f07661c7520d150ec443b7bc01b1ea29
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

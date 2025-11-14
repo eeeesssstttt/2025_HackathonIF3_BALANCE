@@ -11,15 +11,15 @@
           "image": "./images/0-1",
           "text": "Le conseil municipal veut couper les arbres de ton quartier pour agrandir le parking.",
           "accept": {
-            "eco": 1,
-            "pouvoir": 0,
-            "population": 1,
-            "sante": 0
-          },
-          "reject": {
             "eco": -2,
             "pouvoir": 0,
             "population": -1,
+            "sante": 0
+          },
+          "reject": {
+            "eco": 1,
+            "pouvoir": 0,
+            "population": 1,
             "sante": 0
           }
         },
@@ -112,7 +112,7 @@
             "sante": 2
           },
           "reject": {
-            "eco": -5,
+            "eco": 0,
             "pouvoir": 0,
             "population": -1,
             "sante": -2
@@ -197,19 +197,19 @@
         {
           "id": "10",
           "category": "finances",
-          "title": "Augmenter les impôts des + riches",
+          "title": "Augmenter les impôts des plus riches",
           "image": "./images/2-1",
-          "text": "Les citoyens réclament des services publiques.",
+          "text": "Les citoyens demandent de financer les services publics en taxant davantage les plus aisés.",
           "accept": {
-            "eco": 2,
-            "pouvoir": -5,
-            "population": 5,
+            "eco": 0,
+            "pouvoir": -2,
+            "population": 3,
             "sante": 0
           },
           "reject": {
-            "eco": -2,
-            "pouvoir": 5,
-            "population": -5,
+            "eco": 0,
+            "pouvoir": 2,
+            "population": -3,
             "sante": 0
           }
         },
@@ -218,17 +218,17 @@
           "category": "finances",
           "title": "Maintenir la sécurité sociale.",
           "image": "./images/2-2",
-          "text": "Les dépenses militaires explosent",
+          "text": "Le gouvernement propose de préserver la sécurité sociale malgré son coût élevé.",
           "accept": {
-            "eco": 2,
-            "pouvoir": 5,
-            "population": 0,
+            "eco": 0,
+            "pouvoir": -2,
+            "population": 3,
             "sante": 0
           },
           "reject": {
-            "eco": -2,
-            "pouvoir": 5,
-            "population": 0,
+            "eco": 0,
+            "pouvoir": 2,
+            "population": -3,
             "sante": 0
           }
         },
@@ -241,13 +241,13 @@
           "accept": {
             "eco": 0,
             "pouvoir": -2,
-            "population": -5,
+            "population": -3,
             "sante": 0
           },
           "reject": {
             "eco": 0,
             "pouvoir": 2,
-            "population": 5,
+            "population": 3,
             "sante": 0
           }
         },
@@ -260,13 +260,13 @@
           "accept": {
             "eco": 0,
             "pouvoir": 3,
-            "population": -5,
+            "population": -3,
             "sante": 0
           },
           "reject": {
             "eco": 0,
             "pouvoir": -3,
-            "population": 5,
+            "population": 3,
             "sante": 0
           }
         },
@@ -278,33 +278,33 @@
           "text": "Un parti veut censurer les médias qui parlent d'inégalités.",
           "accept": {
             "eco": 0,
-            "pouvoir": -5,
-            "population": -5,
+            "pouvoir": -3,
+            "population": -3,
             "sante": 0
           },
           "reject": {
             "eco": 0,
-            "pouvoir": 5,
-            "population": 5,
+            "pouvoir": 3,
+            "population": 3,
             "sante": 0
           }
         },
         {
           "id": "15",
           "category": "population",
-          "title": "Le ministre du budget veut baisser les congés parentaux pour réduire les coûts",
+          "title": "Baisser les congés parentaux",
           "image": "./images/3-1",
-          "text": "Accepter cette mesure impopulaire pour économiser de l'argent ?",
+          "text": "Le ministre du budget propose de réduire les congés parentaux pour économiser de l'argent.",
           "accept": {
-            "eco": 5,
-            "pouvoir": -5,
-            "population": -10,
-            "sante": -2
+            "eco": -1,
+            "pouvoir": 3,
+            "population": -4,
+            "sante": 0
           },
           "reject": {
-            "eco": -3,
-            "pouvoir": 3,
-            "population": 5,
+            "eco": 1,
+            "pouvoir": -3,
+            "population": 4,
             "sante": 0
           }
         },
@@ -313,17 +313,17 @@
           "category": "population",
           "title": "Un mouvement étudiant bloque les universités",
           "image": "./images/3-2",
-          "text": "Envoyer la police pour rétablir l'ordre ?",
+          "text": "Envoyer la police pour rétablir l'ordre.",
           "accept": {
-            "eco": 0,
-            "pouvoir": 5,
-            "population": -5,
+            "eco": -1,
+            "pouvoir": -3,
+            "population": -3,
             "sante": -2
           },
           "reject": {
-            "eco": -2,
-            "pouvoir": -5,
-            "population": 5,
+            "eco": 1,
+            "pouvoir": 3,
+            "population": 3,
             "sante": 0
           }
         },
@@ -332,18 +332,18 @@
           "category": "population",
           "title": "Les hôpitaux publics sont débordés",
           "image": "./images/3-3",
-          "text": "Investir massivement dans la santé au détriment d'autres budgets ?",
+          "text": "Investir massivement dans la santé au détriment d'autres budgets.",
           "accept": {
-            "eco": -5,
-            "pouvoir": 0,
-            "population": 8,
-            "sante": 10
+            "eco": -2,
+            "pouvoir": -3,
+            "population": 3,
+            "sante": 4
           },
           "reject": {
-            "eco": 3,
-            "pouvoir": 0,
-            "population": -5,
-            "sante": -8
+            "eco": 2,
+            "pouvoir": 3,
+            "population": -3,
+            "sante": -4
           }
         },
         {
@@ -351,17 +351,17 @@
           "category": "population",
           "title": "Les loyers augmentent brutalement dans les grandes villes.",
           "image": "./images/3-4",
-          "text": "Bloquer les loyers par décret ?",
+          "text": "Bloquer les loyers par décret.",
           "accept": {
-            "eco": -3,
+            "eco": -1,
             "pouvoir": -2,
-            "population": 8,
+            "population": 4,
             "sante": 0
           },
           "reject": {
-            "eco": 3,
+            "eco": 1,
             "pouvoir": 2,
-            "population": -5,
+            "population": -4,
             "sante": 0
           }
         },
@@ -370,17 +370,17 @@
           "category": "population",
           "title": "Les citoyens réclament un revenu universel.",
           "image": "./images/3-5",
-          "text": "Mettre en place un revenu de base pour tous ?",
+          "text": "Mettre en place un revenu de base pour tous.",
           "accept": {
-            "eco": -8,
+            "eco": 0,
             "pouvoir": -3,
-            "population": 10,
+            "population": 4,
             "sante": 3
           },
           "reject": {
-            "eco": 3,
+            "eco": 0,
             "pouvoir": 3,
-            "population": -5,
+            "population": -4,
             "sante": 0
           }
         }
