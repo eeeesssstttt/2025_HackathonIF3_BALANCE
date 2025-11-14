@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 
 // [RequireComponent(typeof(CanvasRenderer))]
 public class CardBehavior : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class CardBehavior : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     // The card has a canvas to display text.
     [SerializeField] private Canvas canvas;
@@ -17,8 +18,8 @@ public class CardBehavior : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     [SerializeField] private Image image;
     [SerializeField] private Image background;
 
+    [SerializeField] private Image background;
     [SerializeField] private TextMeshProUGUI titre;
-
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private TextMeshProUGUI accept;
     [SerializeField] private TextMeshProUGUI reject;
@@ -137,29 +138,19 @@ public class CardBehavior : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
 
 
-    // private void Start()
-    // {
-    //     DisplayQuestion(testSprite, testQuestion, testResponse1, testResponse2);
-    // }
+    private Vector3 initialPosition;
+    private bool isMovable;
+    public event Action cardMoved;
+    private float _distanceMoved;
+    private bool _swipeLeft;
 
-    public void Start()
+    private void Start()
     {
-        gameObject.SetActive(false);
-        background.gameObject.SetActive(true);
-        image.gameObject.SetActive(true);
-        titre.gameObject.SetActive(true);
-        text.gameObject.SetActive(true);
-        accept.gameObject.SetActive(true);
-        reject.gameObject.SetActive(true);
-
-        initialPosition = transform.position;
+        initialPosition = transform.localPosition;
     }
 
-    // public void DisplayQuestion(Sprite illustrationSprite, string questionText, string response1Text, string response2Text)
     public void DisplayQuestion(string questionText, string textText, string response1Text, string response2Text)
     {
-        // illustration.sprite = illustrationSprite;
-
         titre.text = questionText;
         text.text = textText;
         accept.text = response1Text;
@@ -169,9 +160,63 @@ public class CardBehavior : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         // canvas.gameObject.SetActive(true);
     }
 
-    public void HideQuestion()
+    public void SetMobility(bool isMovable)
     {
-        // background.gameObject.SetActive(false);
-        canvas.gameObject.SetActive(false);
+        this.isMovable = isMovable;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        transform.localPosition += new Vector3(eventData.delta.x, 0, 0);
+
+        float rotationZ = Mathf.LerpAngle(0, 30, Mathf.Abs(transform.localPosition.x - initialPosition.x) / (Screen.width / 2));
+        transform.localEulerAngles = new Vector3(0, 0, transform.localPosition.x > initialPosition.x ? -rotationZ : rotationZ);
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        initialPosition = transform.localPosition;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        _distanceMoved = Mathf.Abs(transform.localPosition.x - initialPosition.x);
+
+        if (_distanceMoved < 0.4f * Screen.width)
+        {
+            transform.localPosition = initialPosition;
+            transform.localEulerAngles = Vector3.zero;
+        }
+        else
+        {
+            _swipeLeft = transform.localPosition.x < initialPosition.x;
+
+            if (isMovable)
+            {
+                cardMoved?.Invoke();
+                StartCoroutine(SwipeAndReset());
+            }
+        }
+    }
+
+    private IEnumerator SwipeAndReset()
+    {
+        float duration = 0.3f;
+        float elapsed = 0f;
+
+        Vector3 startPos = transform.localPosition;
+        Vector3 endPos = new Vector3(_swipeLeft ? -Screen.width : Screen.width, transform.localPosition.y, 0);
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            // transform.localPosition = Vector3.Lerp(startPos, endPos, t);
+            yield return null;
+        }
+
+        // transform.localPosition = initialPosition;
+        transform.localEulerAngles = Vector3.zero;
     }
 }

@@ -2,100 +2,127 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CardData
+public class CardChoice
 {
-    public string question;
-    public string reponse1;
-    public string reponse2;
-    public int score1;
-    public int score2;
+    public int eco;
+    public int pouvoir;
+    public int population;
+    public int sante;
 }
 
 [System.Serializable]
-public class CardList
+public class CardData
 {
+    public string id;
+    public string category;
+    public string title;
+    public string image;
+    public string text;
+    public CardChoice accept;
+    public CardChoice reject;
+}
+
+[System.Serializable]
+public class Deck
+{
+    public string id;
+    public string title;
     public List<CardData> cards;
+}
+
+[System.Serializable]
+public class Root
+{
+    public List<Deck> decks;
 }
 
 public class CardManager : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
+
+    [SerializeField] private TextAsset jsonFile;
+    private List<CardData> cardList;
+    private int totalCards;
+
     [SerializeField] private CardBehavior currentCard;
     [SerializeField] private CardBehavior nextCard;
+    [SerializeField] private Transform cardCanvas;
 
-    private CardList cardList;
     private int currentCardIndex = 0;
 
-    private TextAsset jsonFile;
-
-    public void SetJsonFile(TextAsset json)
+    void Start()
     {
-        jsonFile = json;
-    }
-
-    public void StartCards()
-    {
-        if (jsonFile == null)
-        {
-            Debug.LogError("Aucun JSON assigné à CardManager !");
-            return;
-        }
-
         LoadData();
         PrepareFirstCards();
     }
 
+    void Update()
+    {
+        ScaleNextCard();
+    }
+
     private void LoadData()
     {
-        cardList = JsonUtility.FromJson<CardList>(jsonFile.text);
-        if (cardList.cards.Count == 0)
-        {
-            Debug.LogError("Aucune carte dans le JSON !");
-        }
+        Root root = JsonUtility.FromJson<Root>(jsonFile.text);
+
+        cardList = root.decks[0].cards;// On prend uniquement le premier deck
+        totalCards = cardList.Count;
     }
 
     private void PrepareFirstCards()
     {
-        // Affiche la première carte
-        currentCard.DisplayQuestion(
-            cardList.cards[0].question,
-            cardList.cards[0].question,
-            cardList.cards[0].reponse1,
-            cardList.cards[0].reponse2
-        );
+        SetupCard(currentCard, currentCardIndex);
+        currentCard.SetMobility(true);
         currentCard.gameObject.SetActive(true);
+        currentCard.cardMoved += CardMovedFront;
 
-        // Affiche la carte suivante si elle existe
-        if (cardList.cards.Count > 1)
-        {
-            nextCard.DisplayQuestion(
-                cardList.cards[1].question,
-                cardList.cards[1].question,
-                cardList.cards[1].reponse1,
-                cardList.cards[1].reponse2
-            );
-            nextCard.gameObject.SetActive(true);
-        }
+        SetupCard(nextCard, GetNextIndex(currentCardIndex));
+        nextCard.gameObject.SetActive(true);
+        nextCard.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
 
-        // Abonne la carte actuelle à l’événement cardMoved
-        currentCard.cardMoved += OnCardSwiped;
+        cardCanvas.gameObject.SetActive(true);
     }
 
-    private void OnCardSwiped()
+    private void SetupCard(CardBehavior card, int index)
     {
-        // Passe à la carte suivante
-        currentCardIndex++;
+        var data = cardList[index];
+        card.DisplayQuestion(data.title, data.text, "<- Accepter", "Rejecter ->");
+    }
 
-        if (currentCardIndex >= cardList.cards.Count)
+    private int GetNextIndex(int index)
+    {
+        return (index + 1) % totalCards;
+    }
+
+    private void ScaleNextCard()
+    {
+        float distanceMoved = currentCard.transform.localPosition.x;
+
+        if (Mathf.Abs(distanceMoved) > 0)
         {
-            Debug.Log("Fin du jeu !");
-            return;
+            float step = Mathf.SmoothStep(0.8f, 1f, Mathf.Abs(distanceMoved) / (Screen.width / 2));
+            nextCard.transform.localScale = new Vector3(step, step, 1);
         }
+    }
 
-        currentCard.DisplayQuestion(
-            cardList.cards[currentCardIndex].question,
-            cardList.cards[currentCardIndex].question,
-            cardList.cards[currentCardIndex].reponse1,
-            cardList.cards[currentCardIndex].reponse2
-        );
+    private void CardMovedFront()
+    {
+        // Swape current et next
+        var temp = currentCard;
+        currentCard = nextCard;
+        nextCard = temp;
+
+        // Reset position et rotation de la carte qui derriere
+        nextCard.transform.localPosition = Vector3.zero;
+        nextCard.transform.localEulerAngles = Vector3.zero;
+        nextCard.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
+
+        // Maj données de la carte derrière
+        currentCardIndex = GetNextIndex(currentCardIndex);
+        SetupCard(nextCard, GetNextIndex(currentCardIndex));
+
+        // Rendre la nouvelle carte devant interactive
+        currentCard.SetMobility(true);
+        currentCard.cardMoved += CardMovedFront;
     }
 }
