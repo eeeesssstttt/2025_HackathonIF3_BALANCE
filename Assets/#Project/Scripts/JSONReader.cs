@@ -54,8 +54,16 @@ public class JSONReader : MonoBehaviour
         public string Title { get; set; }
         public string Text { get; set; }
         public string Image { get; set; }
-        public string Accept { get; set; }
-        public string Reject { get; set; }
+        public Impact Accept { get; set; }
+        public Impact Reject { get; set; }
+    }
+
+    public class Impact
+    {
+        public int Eco { get; set; }
+        public int Pouvoir { get; set; }
+        public int Population { get; set; }
+        public int Sante { get; set; }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -98,7 +106,7 @@ public class JSONReader : MonoBehaviour
     //     cardBehavior.DisplayQuestion(cards.title, cards.text, cards.id, cards.id);
     // }
 
-    public void GetCard(int cardIndex)
+    public Card GetCard(int cardIndex)
     {
         Card card = new Card();
         card.Id = jsonData.decks[0].cards[cardIndex].id;
@@ -106,7 +114,17 @@ public class JSONReader : MonoBehaviour
         card.Title = jsonData.decks[0].cards[cardIndex].title;
         card.Text = jsonData.decks[0].cards[cardIndex].text;
         card.Image = jsonData.decks[0].cards[cardIndex].image;
-        // card.Accept = jsonData.decks[0].cards[cardIndex].accept;
-        // card.Reject = jsonData.decks[0].cards[cardIndex].reject;
+        card.Accept = new Impact();
+        card.Accept.Eco = jsonData.decks[0].cards[cardIndex].accept.eco;
+        card.Accept.Pouvoir = jsonData.decks[0].cards[cardIndex].accept.pouvoir;
+        card.Accept.Population = jsonData.decks[0].cards[cardIndex].accept.population;
+        card.Accept.Sante = jsonData.decks[0].cards[cardIndex].accept.sante;
+        card.Reject = new Impact();
+        card.Reject.Eco = jsonData.decks[0].cards[cardIndex].reject.eco;
+        card.Reject.Pouvoir = jsonData.decks[0].cards[cardIndex].reject.pouvoir;
+        card.Reject.Population = jsonData.decks[0].cards[cardIndex].reject.population;
+        card.Reject.Sante = jsonData.decks[0].cards[cardIndex].reject.sante;
+
+        return card;
     }
 }
